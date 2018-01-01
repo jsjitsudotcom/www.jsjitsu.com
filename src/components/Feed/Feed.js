@@ -1,5 +1,6 @@
 import React, { PureComponent } from "react";
 import Style from "./Feed.scss";
+import Click from './../Sound/Click';
 
 export default class Feed extends PureComponent {
   render() {
@@ -7,10 +8,12 @@ export default class Feed extends PureComponent {
     const containerStyle = `${Style.container} ${readedStyle}`;
 
     return (
-      <a href={this.props.link} className={containerStyle} target="blank">
-        <div className={Style.index}>{this.props.index}</div>
-        <div className={Style.title}>{this.props.title}</div>
-      </a>
+      <Click sound={3}>
+        <a href={this.props.link} className={containerStyle} target="blank">
+          <div className={Style.index}>{this.props.index}</div>
+          <div className={Style.title}>{this.props.title}</div>
+        </a>
+      </Click>
     );
   }
 }
