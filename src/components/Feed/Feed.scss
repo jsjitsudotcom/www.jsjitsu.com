@@ -1,0 +1,46 @@
+:local(.container) {
+  width: 100%;
+  height: 50px;
+  background-color: white;
+  display: flex;
+  align-items: center;
+  position: relative;
+  border-radius: 4px;
+  padding: 0 10px;
+  overflow: hidden;
+}
+
+:local(.readed) {
+  :local(.index) {
+    background-color: #fbfbfb;
+    color: #d3d3d3;
+  }
+  :local(.title) {
+      color: #E1E1E1;
+  }
+}
+
+:local(.index) {
+  width: 33px;
+  height: 33px;
+  background-color: #f1f1f1;
+  color: #888888;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  border-radius: 7px;
+}
+
+:local(.blockTitle) {
+  padding: 0 10px;
+  overflow: hidden;
+}
+
+:local(.title) {
+  width: 100%;
+  padding: 0 10px;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+}
