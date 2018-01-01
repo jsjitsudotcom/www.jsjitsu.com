@@ -1,11 +1,67 @@
 import * as constants from "./../constants/feeds";
+import { set, view, lensPath, concat, uniqBy, prop } from "ramda";
+const initialState = {
+  sources: {},
+  selected: null
+};
 
-const initialState = {};
+const getInitialStateSource = (name, url, options) => ({
+  name,
+  url,
+  feeds: [],
+  ...options
+});
+
+/* A tester
+const test = {
+  sources: ["Echojs", "Medium"],
+  selected: "Echojs",
+  entities: {
+    sources: {
+      "Echojs": {
+        feeds: ["245", "356"]
+      }
+    },
+    feeds: {
+      "245": {
+        id: "245",
+        source: "Echojs"
+      }
+    }
+  }
+}
+*/
+
+const getLensFeeds = name => lensPath(["sources", name, "feeds"]);
 
 export default function(state = initialState, action) {
   const actions = {
-    [constants.onLogout]() {
-      return initialState;
+    [constants.addSource]() {
+      return {
+        sources: {
+          ...state,
+          [action.name]: getInitialStateSource(
+            action.name,
+            action.url,
+            action.options
+          )
+        }
+      };
+    },
+
+    [constants.addFeeds]() {
+      const lensFeeds = getLensFeeds(action.name);
+      const getFeeds = view(lensFeeds, state);
+      const concatFeeds = uniqBy(prop("id"), concat(getFeeds, action.feeds));
+
+      return set(lensFeeds, concatFeeds, state);
+    },
+
+    [constants.selectSource]() {
+      return {
+        ...state,
+        selected: action.name
+      };
     },
 
     default() {
