@@ -7,7 +7,7 @@ import Connect from "./../../containers/Home";
 
 class Home extends PureComponent {
   componentDidMount() {
-    
+    this.props.fetchSource(this.props.selected);
   }
 
   render() {

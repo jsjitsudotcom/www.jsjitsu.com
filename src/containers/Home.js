@@ -6,13 +6,15 @@ const mapState = (state, props) => {
 
   return {
     sources: state.feeds.sources,
+    selected,
     feeds: state.feeds.sources[selected].feeds
   };
 };
 
 const mapDispatch = (dispatch, props) => {
   return {
-    addFeeds: (source, feeds) => dispatch(actions.feeds.addFeeds(source, feeds))
+    addFeeds: (source, feeds) => dispatch(actions.feeds.addFeeds(source, feeds)),
+    fetchSource: (source) => dispatch(actions.feeds.fetchSource(source))
   };
 };
 
