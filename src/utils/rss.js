@@ -1,7 +1,7 @@
 import rssParser from "rss-parser";
 import Promise from "bluebird";
 
-const Rss = {
+const RSS = {
   fetchFeeds: /* istanbul ignore next */ (url) => {  
     return new Promise((resolve, reject) => {
       return rssParser.parseURL(url, (err, parsed) => {
@@ -11,7 +11,7 @@ const Rss = {
     });
   },
   fetchSource(source, url) {
-    return Rss.fetchFeeds(url).then(rss => {
+    return RSS.fetchFeeds(url).then(rss => {
       return {
         feeds: rss.feed.entries,
         name: source,
@@ -23,4 +23,4 @@ const Rss = {
   }
 };
 
-export default Rss;
+export default RSS;

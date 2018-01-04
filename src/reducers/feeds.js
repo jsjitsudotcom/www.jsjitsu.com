@@ -9,6 +9,7 @@ const getInitialStateSource = (name, url, options) => ({
   name,
   url,
   feeds: [],
+  fetching: false,
   ...options
 });
 
@@ -33,6 +34,7 @@ const test = {
 */
 
 const getLensFeeds = name => lensPath(["sources", name, "feeds"]);
+const getLensFeching = name => lensPath(["sources", name, "fetching"]);
 
 export default function(state = initialState, action) {
   const actions = {
@@ -52,7 +54,7 @@ export default function(state = initialState, action) {
     [constants.addFeeds]() {
       const lensFeeds = getLensFeeds(action.name);
       const getFeeds = view(lensFeeds, state);
-      const concatFeeds = uniqBy(prop("id"), concat(getFeeds, action.feeds));
+      const concatFeeds = uniqBy(prop("link"), concat(getFeeds, action.feeds));
 
       return set(lensFeeds, concatFeeds, state);
     },
@@ -62,6 +64,16 @@ export default function(state = initialState, action) {
         ...state,
         selected: action.name
       };
+    },
+
+    [constants.fetchingSource]() {
+      const lensFetching = getLensFeching(action.name);
+      return set(lensFetching, true, state);
+    },
+
+    [constants.fetchEndSource]() {
+      const lensFetching = getLensFeching(action.name);
+      return set(lensFetching, false, state);
     },
 
     default() {
