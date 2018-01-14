@@ -357,7 +357,7 @@ module.exports = {
       staticFileGlobsIgnorePatterns: [/\.map$/, /asset-manifest\.json$/],
       runtimeCaching: [
         {
-          urlPattern: /^https:\/\/api\.jsjitsu\.com/,
+          urlPattern: /^https:\/\/jdys2ftxag\.execute-api\.eu-west-1\.amazonaws\.com\/production/,
           handler: "fastest"
         }
       ]
