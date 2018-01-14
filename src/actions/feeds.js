@@ -72,7 +72,7 @@ export const fetchSource = name => (dispatcher, getState) => {
 
   dispatcher(fetchingSource(name));
 
-  return rss.fetchSource(name, source.url).then(response => {
+  return rss.fetchSource(source.url).then(response => {
     dispatcher(addFeeds(name, response.feeds));
     return dispatcher(fetchEndSource(name));
   });

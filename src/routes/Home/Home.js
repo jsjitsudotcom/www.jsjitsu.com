@@ -7,18 +7,23 @@ import Connect from "./../../containers/Home";
 
 class Home extends PureComponent {
   componentDidMount() {
-
+    this.props.fetchSource(this.props.selected);
   }
 
   render() {
     return (
       <div>
         <Header fixed />
-        <SubHeader fixed />
+        <SubHeader
+          fixed
+          tabs={this.props.sourcesArray}
+          selected={this.props.selected}
+          onSelect={this.props.selectSource}
+        />
         <div className={Style.feeds}>
-          {Array.from(new Array(20)).map((e, i) => (
-            <div className={Style.feed} key={i}>
-              <Feed index={i + 1} readed={i % 5 === 0} />
+          {this.props.feeds.map((feed, index) => (
+            <div className={Style.feed} key={index}>
+              <Feed index={index + 1} link={feed.link} title={feed.title} />
             </div>
           ))}
         </div>

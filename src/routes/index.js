@@ -11,6 +11,11 @@ const store = createStore({
         name: "Echojs",
         url: "http://www.echojs.com/rss",
         feeds: []
+      },
+      HackerNook: {
+        name: "Hacker Noon",
+        url: "https://hackernoon.com/feed",
+        feeds: []
       }
     }
   }

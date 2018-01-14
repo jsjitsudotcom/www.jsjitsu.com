@@ -1,32 +1,34 @@
 import React, { PureComponent } from "react";
 import Style from "./SubHeader.scss";
 import Click from "./../Sound/Click";
+import PropTypes from "prop-types";
+
+const getTabClassName = (tab, active) =>
+  tab === active ? Style.tabActive : Style.tab;
 
 export default class SubHeader extends PureComponent {
   render() {
     return (
       <div className={Style.container}>
         <div className={Style.tabs}>
-          <Click sound={11}>
-            <div className={Style.tab}>Dribbble</div>
-          </Click>
-          <Click sound={11}>
-            <div className={Style.tabActive}>Medium</div>
-          </Click>
-          <Click sound={11}>
-            <div className={Style.tab}>Echojs</div>
-          </Click>
-          <Click sound={11}>
-            <div className={Style.tab}>Dev.to</div>
-          </Click>
-          <Click sound={11}>
-            <div className={Style.tab}>Echojs</div>
-          </Click>
-          <Click sound={11}>
-            <div className={Style.tab}>Dribbble</div>
-          </Click>
+          {this.props.tabs.map((tab, index) => (
+            <Click sound={11} key={index}>
+              <div
+                onClick={() => this.props.onSelect(tab)}
+                className={getTabClassName(tab, this.props.selected)}
+              >
+                {tab}
+              </div>
+            </Click>
+          ))}
         </div>
       </div>
     );
   }
 }
+
+SubHeader.propTypes = {
+  tabs: PropTypes.arrayOf(PropTypes.string),
+  selected: PropTypes.string,
+  onSelect: PropTypes.func
+};

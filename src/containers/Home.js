@@ -6,6 +6,7 @@ const mapState = (state, props) => {
 
   return {
     sources: state.feeds.sources,
+    sourcesArray: Object.keys(state.feeds.sources),
     selected,
     feeds: state.feeds.sources[selected].feeds
   };
@@ -13,8 +14,10 @@ const mapState = (state, props) => {
 
 const mapDispatch = (dispatch, props) => {
   return {
-    addFeeds: (source, feeds) => dispatch(actions.feeds.addFeeds(source, feeds)),
-    fetchSource: (source) => dispatch(actions.feeds.fetchSource(source))
+    addFeeds: (source, feeds) =>
+      dispatch(actions.feeds.addFeeds(source, feeds)),
+    fetchSource: source => dispatch(actions.feeds.fetchSource(source)),
+    selectSource: source => dispatch(actions.feeds.selectSource(source))
   };
 };
 
