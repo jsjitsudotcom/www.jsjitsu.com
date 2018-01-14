@@ -59,7 +59,8 @@
     "start:production": "NODE_ENV=production node scripts/start.js",
     "build": "node scripts/build.js",
     "test": "node scripts/test.js --env=jsdom",
-    "coverage": "jest --coverage"
+    "coverage": "jest --coverage",
+    "deploy": "aws s3 sync ./build s3://www.jsjitsu.com --acl public-read --region=eu-west-1"
   },
   "jest": {
     "collectCoverageFrom": [
