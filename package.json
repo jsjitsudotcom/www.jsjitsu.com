@@ -57,10 +57,13 @@
   "scripts": {
     "start": "node scripts/start.js",
     "start:production": "NODE_ENV=production node scripts/start.js",
-    "build": "node scripts/build.js",
+    "build": "node scripts/build.js && npm run gzip:sw && npm run load-css && npm run gzip:html",
     "test": "node scripts/test.js --env=jsdom",
     "coverage": "jest --coverage",
-    "deploy": "aws s3 sync ./build s3://www.jsjitsu.com --acl public-read --region=eu-west-1"
+    "gzip:sw": "gzip build/service-worker.js && mv build/service-worker.js.gz build/service-worker.js",
+    "gzip:html": "gzip build/index.html && mv build/index.html.gz build/index.html",
+    "load-css": "node scripts/load-css.js",
+    "deploy:production": "node scripts/deploy.js --stage production"
   },
   "jest": {
     "collectCoverageFrom": [
@@ -106,6 +109,8 @@
     "extends": "react-app"
   },
   "devDependencies": {
+    "cheerio": "^1.0.0-rc.2",
+    "compression-webpack-plugin": "^1.1.3",
     "node-sass": "^4.7.2",
     "preload-webpack-plugin": "^2.1.1",
     "sass-loader": "^6.0.6",

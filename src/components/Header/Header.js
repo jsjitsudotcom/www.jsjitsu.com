@@ -7,7 +7,7 @@ import Click from "./../../components/Sound/Click";
 export default class Header extends PureComponent {
   render() {
     return (
-      <div className={Style.container}>
+      <header className={Style.container}>
         <Click sound={9}>
           <div className={Style.menu}>
             <img src={Menu} alt="menu" />
@@ -16,7 +16,7 @@ export default class Header extends PureComponent {
         <div className={Style.logo}>
           <img src={Logo} alt="logo" />
         </div>
-      </div>
+      </header>
     );
   }
 }

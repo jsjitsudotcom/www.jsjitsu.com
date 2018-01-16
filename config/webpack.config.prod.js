@@ -12,9 +12,9 @@ const eslintFormatter = require("react-dev-utils/eslintFormatter");
 const ModuleScopePlugin = require("react-dev-utils/ModuleScopePlugin");
 const paths = require("./paths");
 const getClientEnvironment = require("./env");
+const CompressionPlugin = require("compression-webpack-plugin");
 const PreloadWebpackPlugin = require("preload-webpack-plugin");
-const BundleAnalyzerPlugin = require("webpack-bundle-analyzer")
-  .BundleAnalyzerPlugin;
+const { BundleAnalyzerPlugin } = require("webpack-bundle-analyzer");
 
 // Webpack uses `publicPath` to determine where the app is being served from.
 // It requires a trailing slash, or the file assets will get an incorrect path.
@@ -326,6 +326,12 @@ module.exports = {
     new ManifestPlugin({
       fileName: "asset-manifest.json"
     }),
+    new PreloadWebpackPlugin({
+      rel: "preload",
+      include: "all",
+      fileBlacklist: [/\.map$/, /\.css$/],
+      as: "script"
+    }),
     // Generate a service worker script that will precache, and keep up to date,
     // the HTML & assets that are part of the Webpack build.
     new SWPrecacheWebpackPlugin({
@@ -369,7 +375,16 @@ module.exports = {
     // You can remove this if you don't use Moment.js:
     new webpack.IgnorePlugin(/^\.\/locale$/, /moment$/),
     new webpack.optimize.ModuleConcatenationPlugin(),
-    new BundleAnalyzerPlugin()
+    new CompressionPlugin({
+      asset: "[path]",
+      algorithm: "gzip",
+      test: /\.js$|\.css$/,
+      threshold: 0,
+      minRatio: 0.8
+    }),
+    new BundleAnalyzerPlugin({
+      analyzerMode: "static"
+    })
   ],
   // Some libraries import Node modules but don't use them in the browser.
   // Tell Webpack to provide empty mocks for them so importing them works.
