@@ -10,10 +10,8 @@ describe("rss tests suite", () => {
   it("should return feeds from source", () => {
     const stubFetchFeeds = sinon.stub(Rss, "fetchFeeds").resolves(feedsData);
     return Rss.fetchSource(
-      "Hacker News",
       "https://news.ycombinator.com/rss"
     ).then(source => {
-      expect(source.name).toEqual("Hacker News");
       expect(source.feeds).toHaveLength(30);
       expect(source.description).toBeTruthy();
       expect(source.link).toBeTruthy();

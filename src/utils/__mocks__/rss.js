@@ -5,11 +5,10 @@ const RSS = {
   fetchSource(source, url) {
     return RSS.fetchFeeds(url).then(rss => {
       return {
-        feeds: rss.feed.entries,
-        name: source,
-        link: rss.feed.link,
-        description: rss.feed.description,
-        title: rss.feed.title
+        feeds: rss.feeds,
+        link: rss.link,
+        description: rss.description,
+        title: rss.title
       };
     });
   }
