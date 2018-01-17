@@ -37,7 +37,7 @@ jobs:
       - run: yarn test:ci
 
 deployment:
-  production:
+  prod:
     branch: master
     commands:
       - yarn build
