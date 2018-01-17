@@ -48,7 +48,7 @@ jobs:
           - v1-dependencies-
       - run:
             command: |
-              apt install python-pip python-dev
+              sudo apt install python-pip python-dev
               pip install awscli    
       - run: yarn build   
       - run: yarn deploy:ci  
