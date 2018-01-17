@@ -17,9 +17,7 @@ const getUrl = stage => {
 const execWithoutCompression = stage => () =>
   new Promise((resolve, reject) => {
     const url = getUrl(stage);
-    const command = `aws s3 sync ./build s3://${
-      url
-    } --acl public-read --region=eu-west-1 --exclude '*.js' --exclude '*.html' --exclude '*.css'`;
+    const command = `aws s3 sync ./build s3://${url} --acl public-read --region=eu-west-1 --exclude '*.js' --exclude '*.html' --exclude '*.css'`;
     return exec(command, (error, stdout, stderr) => {
       if (error) return reject(error);
       return resolve();
@@ -29,9 +27,7 @@ const execWithoutCompression = stage => () =>
 const execWithCompression = stage => () =>
   new Promise((resolve, reject) => {
     const url = getUrl(stage);
-    const command = `aws s3 sync ./build s3://${
-      url
-    } --acl public-read --region=eu-west-1 --exclude '*' --include '*.js' --include '*.css' --exclude '*-worker.js' --content-encoding=gzip`;
+    const command = `aws s3 sync ./build s3://${url} --acl public-read --region=eu-west-1 --exclude '*' --include '*.js' --include '*.css' --exclude '*-worker.js' --content-encoding=gzip`;
     return exec(command, (error, stdout, stderr) => {
       if (error) return reject(error);
       return resolve();
@@ -41,9 +37,7 @@ const execWithCompression = stage => () =>
 const execWithCompressionHtml = stage => () =>
   new Promise((resolve, reject) => {
     const url = getUrl(stage);
-    const command = `aws s3 sync ./build s3://${
-      url
-    } --acl public-read --region=eu-west-1 --exclude '*' --include '*.html' --content-encoding=gzip --cache-control max-age=0`;
+    const command = `aws s3 sync ./build s3://${url} --acl public-read --region=eu-west-1 --exclude '*' --include '*.html' --content-encoding=gzip --cache-control max-age=0`;
     return exec(command, (error, stdout, stderr) => {
       if (error) return reject(error);
       return resolve();
@@ -53,9 +47,7 @@ const execWithCompressionHtml = stage => () =>
 const execWithCompressionSW = stage => () =>
   new Promise((resolve, reject) => {
     const url = getUrl(stage);
-    const command = `aws s3 sync ./build s3://${
-      url
-    } --acl public-read --region=eu-west-1 --exclude '*' --include '*-worker.js' --content-encoding=gzip --cache-control max-age=0`;
+    const command = `aws s3 sync ./build s3://${url} --acl public-read --region=eu-west-1 --exclude '*' --include '*-worker.js' --content-encoding=gzip --cache-control max-age=0`;
     return exec(command, (error, stdout, stderr) => {
       if (error) return reject(error);
       return resolve();
@@ -76,20 +68,23 @@ console.log(
 
 const log = message => () => console.log(chalk.green(message));
 
-inquirer
-  .prompt({
-    type: "confirm",
-    name: "confirm",
-    message: `Êtes-vous sûr de vouloir déployer l'application en ${
-      argv.stage
-    } ?`
-  })
-  .then(response => {
-    if (response.confirm) return run(argv.stage);
-    log("Déploiement aborté !")();
-    return false;
-  })
-  .then(() => process.exit());
+const runWithConfirm = () =>
+  inquirer
+    .prompt({
+      type: "confirm",
+      name: "confirm",
+      message: `Êtes-vous sûr de vouloir déployer l'application en ${
+        argv.stage
+      } ?`
+    })
+    .then(response => {
+      if (response.confirm) return run(argv.stage);
+      log("Déploiement aborté !")();
+      return false;
+    })
+    .then(() => process.exit());
+
+const runWithoutConfirm = () => run(argv.stage).then(() => process.exit());
 
 const run = stage => {
   log(`Deployment started to ${stage}`)();
@@ -104,3 +99,6 @@ const run = stage => {
 };
 
 // "aws s3 sync ./build s3://beta.dashboard.nunki.co --acl public-read --region=eu-west-1 --exclude '*.js' --exclude '*.html' --exclude '*.css' && aws s3 sync ./build s3://beta.dashboard.nunki.co --acl public-read --region=eu-west-1 --exclude '*' --include '*.js' --include '*.css' --include '*.html' --content-encoding=gzip",
+
+if(process.env.CI) return runWithoutConfirm();
+return runWithConfirm();

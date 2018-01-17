@@ -65,7 +65,7 @@
     "gzip:html": "gzip build/index.html && mv build/index.html.gz build/index.html",
     "load-css": "node scripts/load-css.js",
     "deploy:production": "node scripts/deploy.js --stage production",
-    "deploy:ci": "echo deployyyyyyyy"
+    "deploy:ci": "CI=true npm run deploy:production"
   },
   "jest": {
     "collectCoverageFrom": [
