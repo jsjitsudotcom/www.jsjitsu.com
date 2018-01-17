@@ -48,8 +48,8 @@ jobs:
           - v1-dependencies-
       - run:
             command: |
-              apt update   
-              apt-get -y -qq install awscli   
+              sudo apt update   
+              sudo apt -y -qq install awscli   
       - run: yarn build   
       - run: yarn deploy:ci  
 
