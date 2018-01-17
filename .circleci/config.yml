@@ -34,12 +34,13 @@ jobs:
           key: v1-dependencies-{{ checksum "package.json" }}
         
       # run tests!
+      - run: pwd
       - run: yarn test:ci
 
   deploy:
     docker:
       - image: circleci/node:latest
-    working_directory: ~/repo 
+    working_directory: /tmp/jsjitsu-site
     steps:
       - run: yarn build   
       - run: yarn deploy:ci  
