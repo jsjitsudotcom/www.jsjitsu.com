@@ -65,7 +65,7 @@
     "coverage": "jest --coverage",
     "precommit": "lint-staged",
     "commit": "git-cz",
-    "release": "corp-semantic-release",
+    "do:release": "corp-semantic-release",
     "gzip:sw":
       "gzip build/service-worker.js && mv build/service-worker.js.gz build/service-worker.js",
     "gzip:html":
