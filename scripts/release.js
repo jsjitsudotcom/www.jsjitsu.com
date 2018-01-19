@@ -1,6 +1,11 @@
 const { exec } = require("child_process");
+const fs = require("fs");
 
-const getVersion = () => require(`${process.cwd()}/package.json`).version;
+const getVersion = () => {
+  const packageJSON = fs.readFileSync(`${process.cwd()}/package.json`);
+  const parsePackage = JSON.parse(packageJSON);
+  return parsePackage.version;
+};
 
 const executeSemanticRelease = () =>
   new Promise((resolve, reject) => {
