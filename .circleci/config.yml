@@ -55,7 +55,7 @@ jobs:
                 git config --global user.email "marques.developpement@gmail.com"
                 git config --global user.name "Marques Kevin"
                 git config --global push.default simple
-                
+
       - run: yarn release 
 
 workflows:
