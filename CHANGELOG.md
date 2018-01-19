@@ -1,3 +1,18 @@
+<a name="1.0.4"></a>
+## [1.0.4](https://bitbucket.org/MarquesDev/jsjitsu-interface/compare/v1.0.3...v1.0.4) (2018-01-19)
+
+
+### Bug Fixes
+
+* **circle:** decommanter circleci deploy job ([9007132](https://bitbucket.org/MarquesDev/jsjitsu-interface/commits/9007132))
+* **circleci:** github info ([8098914](https://bitbucket.org/MarquesDev/jsjitsu-interface/commits/8098914))
+* **git:** ajout du nom dans git config et circleci ([3d7e7bf](https://bitbucket.org/MarquesDev/jsjitsu-interface/commits/3d7e7bf))
+* **git:** fix ([9755fc9](https://bitbucket.org/MarquesDev/jsjitsu-interface/commits/9755fc9))
+* **git:** push default ([16c28f7](https://bitbucket.org/MarquesDev/jsjitsu-interface/commits/16c28f7))
+* **version:** ajout de la version dans l'environnement ([f8a854b](https://bitbucket.org/MarquesDev/jsjitsu-interface/commits/f8a854b))
+
+
+
 <a name="1.0.3"></a>
 ## [1.0.3](https://bitbucket.org/MarquesDev/jsjitsu-interface/compare/v1.0.2...v1.0.3) (2018-01-19)
 
