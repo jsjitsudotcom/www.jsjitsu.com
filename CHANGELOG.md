@@ -1,3 +1,13 @@
+<a name="1.0.3"></a>
+## [1.0.3](https://bitbucket.org/MarquesDev/jsjitsu-interface/compare/v1.0.2...v1.0.3) (2018-01-19)
+
+
+### Bug Fixes
+
+* **release:** recuperation de la version avec la methode fs ([411a22e](https://bitbucket.org/MarquesDev/jsjitsu-interface/commits/411a22e))
+
+
+
 <a name="1.0.2"></a>
 ## [1.0.2](https://bitbucket.org/MarquesDev/jsjitsu-interface/compare/v1.0.1...v1.0.2) (2018-01-19)
 
