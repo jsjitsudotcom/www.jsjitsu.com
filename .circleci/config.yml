@@ -49,7 +49,8 @@ jobs:
       - run:
             command: |
               sudo apt update   
-              sudo apt -y -qq install awscli   
+              sudo apt -y -qq install awscli
+      - run: yarn release       
       - run: yarn build   
       - run: yarn deploy:ci  
 
@@ -58,9 +59,9 @@ workflows:
   build-deploy:
     jobs:
       - build
-      - deploy:
-          requires:
-            - build
-          filters:
-            branches:
-              only: master
+      # - deploy:
+      #     requires:
+      #       - build
+      #     filters:
+      #       branches:
+      #         only: master
