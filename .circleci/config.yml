@@ -53,6 +53,7 @@ jobs:
       - run:
             command: |
                 git config --global user.email "marques.developpement@gmail.com"
+                git config --global user.name "Marques Kevin"
       - run: yarn release 
 
 workflows:
