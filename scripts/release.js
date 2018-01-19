@@ -5,13 +5,15 @@ const executeSemanticRelease = () =>
     const { version: oldVersion } = require(`${process.cwd()}/package.json`);
 
     console.log("Semantical release est lancé");
+    console.log(`La version actuelle est ${oldVersion}`);
 
     exec("yarn do:release", error => {
       if (error) return reject(error);
+      const { version: newVersion } = require(`${process.cwd()}/package.json`);
 
+      console.log(`La nouvelle version est ${newVersion}`);
       console.log("Semantical release checking des versions");
 
-      const { version: newVersion } = require(`${process.cwd()}/package.json`);
       const isSameVersion = oldVersion === newVersion;
 
       console.log(
