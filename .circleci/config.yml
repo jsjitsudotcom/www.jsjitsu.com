@@ -50,9 +50,7 @@ jobs:
             command: |
               sudo apt update   
               sudo apt -y -qq install awscli
-      - run: yarn release       
-      - run: yarn build   
-      - run: yarn deploy:ci  
+      - run: yarn release 
 
 workflows:
   version: 2

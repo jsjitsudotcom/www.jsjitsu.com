@@ -15,6 +15,7 @@ export default class Header extends PureComponent {
         </Click>
         <div className={Style.logo}>
           <img src={Logo} alt="logo" />
+          {process.env.VERSION}
         </div>
       </header>
     );
