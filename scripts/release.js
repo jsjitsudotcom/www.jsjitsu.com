@@ -32,7 +32,6 @@ const executeBuildAndDeploy = isSameVersion =>
       console.log("Les versions sont les mêmes, pas de déploiement");
       return resolve();
     }
-
     console.log("Début de la compilation et du déploiement");
 
     exec("yarn build && yarn deploy:ci", error => {
