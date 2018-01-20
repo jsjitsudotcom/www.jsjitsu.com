@@ -1,3 +1,19 @@
+<a name="1.2.0"></a>
+# [1.2.0](https://bitbucket.org/MarquesDev/jsjitsu-interface/compare/v1.0.4...v1.2.0) (2018-01-20)
+
+
+### Bug Fixes
+
+* **header:** amélioration des performances de scroll et ajout du loader de feeds ([883ba50](https://bitbucket.org/MarquesDev/jsjitsu-interface/commits/883ba50))
+* **test:** fix test jest ([5e88779](https://bitbucket.org/MarquesDev/jsjitsu-interface/commits/5e88779))
+
+
+### Features
+
+* **splash:** ajout du splash screen et des icones pour pwa ([50cd89a](https://bitbucket.org/MarquesDev/jsjitsu-interface/commits/50cd89a))
+
+
+
 <a name="1.0.4"></a>
 ## [1.0.4](https://bitbucket.org/MarquesDev/jsjitsu-interface/compare/v1.0.3...v1.0.4) (2018-01-19)
 
