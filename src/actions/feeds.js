@@ -31,7 +31,12 @@ export const addFeeds = (name, feeds) => ({
  */
 export const selectSource = name => ({
   type: types.selectSource,
-  name
+  name,
+  meta: {
+    amplitude: {
+      name
+    }
+  }
 });
 
 /**
@@ -64,11 +69,13 @@ export const fetchSource = name => (dispatcher, getState) => {
   const source = feeds.sources[name];
 
   /* istanbul ignore next */
-  if (!source) return Promise.reject(`The source with name ${name} does not exist`);
+  if (!source)
+    return Promise.reject(`The source with name ${name} does not exist`);
   /* istanbul ignore next */
-  if (!source.url) return Promise.reject(`The source ${name} does not have an url`);
-  
-  if(source.feeds.length > 0) return Promise.resolve();
+  if (!source.url)
+    return Promise.reject(`The source ${name} does not have an url`);
+
+  if (source.feeds.length > 0) return Promise.resolve();
 
   dispatcher(fetchingSource(name));
 

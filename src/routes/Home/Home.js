@@ -5,6 +5,7 @@ import SubHeader from "./../../components/SubHeader/SubHeader";
 import Feed from "./../../components/Feed/Feed";
 import Menu from "./../../components/Menu/Menu";
 import Connect from "./../../containers/Home";
+import Amplitude from "./../../utils/amplitude";
 
 class Home extends PureComponent {
   state = { menu: false };
@@ -25,10 +26,12 @@ class Home extends PureComponent {
   }
 
   openMenu() {
+    Amplitude.logEvent("MENU_OPEN");
     this.setState({ menu: true });
   }
 
   closeMenu() {
+    Amplitude.logEvent("MENU_CLOSE");
     this.setState({ menu: false });
   }
 
