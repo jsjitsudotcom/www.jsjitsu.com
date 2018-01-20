@@ -65,7 +65,7 @@
     "test": "node scripts/test.js --env=jsdom",
     "test:ci": "CI=true node scripts/test.js --env=jsdom",
     "coverage": "jest --coverage",
-    "precommit": "lint-staged",
+    "precommit": "npm run test:ci && lint-staged",
     "commit": "git-cz",
     "do:release": "corp-semantic-release",
     "release":

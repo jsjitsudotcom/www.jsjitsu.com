@@ -1,10 +1,10 @@
 import { createStore, compose, applyMiddleware } from "redux";
 import rootReducer from "../reducers";
 import thunk from "redux-thunk";
-import { reduxMiddleware as amplitude } from "./../utils/amplitude";
+import Amplitude, { reduxMiddleware } from "./../utils/amplitude";
 
 const enhancer = compose(
-  applyMiddleware(amplitude, thunk),
+  applyMiddleware(reduxMiddleware(Amplitude), thunk),
   process.env.NODE_ENV === "test"
     ? compose
     : process.env.NODE_ENV !== "production" &&
