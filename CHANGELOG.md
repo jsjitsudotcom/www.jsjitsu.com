@@ -1,3 +1,14 @@
+<a name="1.2.2"></a>
+## [1.2.2](https://bitbucket.org/MarquesDev/jsjitsu-interface/compare/v1.2.1...v1.2.2) (2018-01-20)
+
+
+### Bug Fixes
+
+* **amplitude:** ajout amplitude ([032e48a](https://bitbucket.org/MarquesDev/jsjitsu-interface/commits/032e48a))
+* **amplitude:** ajout d'amplitude ([6fc0d0b](https://bitbucket.org/MarquesDev/jsjitsu-interface/commits/6fc0d0b))
+
+
+
 <a name="1.2.1"></a>
 ## [1.2.1](https://bitbucket.org/MarquesDev/jsjitsu-interface/compare/v1.2.0...v1.2.1) (2018-01-20)
 

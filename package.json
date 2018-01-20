@@ -1,6 +1,6 @@
 {
   "name": "site",
-  "version": "1.2.1",
+  "version": "1.2.2",
   "private": true,
   "dependencies": {
     "amplitude-js": "https://github.com/amplitude/Amplitude-Javascript.git",
@@ -60,20 +60,16 @@
     "preinstall": "node scripts/preinstall.js",
     "start": "node scripts/start.js",
     "start:production": "NODE_ENV=production node scripts/start.js",
-    "build":
-      "node scripts/build.js && npm run gzip:sw && npm run load-css && npm run gzip:html",
+    "build": "node scripts/build.js && npm run gzip:sw && npm run load-css && npm run gzip:html",
     "test": "node scripts/test.js --env=jsdom",
     "test:ci": "CI=true node scripts/test.js --env=jsdom",
     "coverage": "jest --coverage",
     "precommit": "npm run test:ci && lint-staged",
     "commit": "git-cz",
     "do:release": "corp-semantic-release",
-    "release":
-      "npm run test:ci && npm run do:release && npm run build && npm run deploy:ci",
-    "gzip:sw":
-      "gzip build/service-worker.js && mv build/service-worker.js.gz build/service-worker.js",
-    "gzip:html":
-      "gzip build/index.html && mv build/index.html.gz build/index.html",
+    "release": "npm run test:ci && npm run do:release && npm run build && npm run deploy:ci",
+    "gzip:sw": "gzip build/service-worker.js && mv build/service-worker.js.gz build/service-worker.js",
+    "gzip:html": "gzip build/index.html && mv build/index.html.gz build/index.html",
     "load-css": "node scripts/load-css.js",
     "deploy:production": "node scripts/deploy.js --stage production",
     "deploy:ci": "CI=true npm run deploy:production"
@@ -85,21 +81,32 @@
     "ghooks": {}
   },
   "lint-staged": {
-    "*.{js,jsx,json,css,scss}": ["prettier --write", "git add"]
+    "*.{js,jsx,json,css,scss}": [
+      "prettier --write",
+      "git add"
+    ]
   },
   "jest": {
-    "collectCoverageFrom": ["src/**/*.{js,jsx,mjs}", "!src/stores/**/*"],
-    "setupFiles": ["<rootDir>/config/polyfills.js"],
-    "testMatch": ["<rootDir>/src/**/__tests__/**/*.{js,jsx,mjs}"],
+    "collectCoverageFrom": [
+      "src/**/*.{js,jsx,mjs}",
+      "!src/stores/**/*"
+    ],
+    "setupFiles": [
+      "<rootDir>/config/polyfills.js"
+    ],
+    "testMatch": [
+      "<rootDir>/src/**/__tests__/**/*.{js,jsx,mjs}"
+    ],
     "testEnvironment": "node",
     "testURL": "http://localhost",
     "transform": {
       "^.+\\.(js|jsx|mjs)$": "<rootDir>/node_modules/babel-jest",
       "^.+\\.css$": "<rootDir>/config/jest/cssTransform.js",
-      "^(?!.*\\.(js|jsx|mjs|css|json)$)":
-        "<rootDir>/config/jest/fileTransform.js"
+      "^(?!.*\\.(js|jsx|mjs|css|json)$)": "<rootDir>/config/jest/fileTransform.js"
     },
-    "transformIgnorePatterns": ["[/\\\\]node_modules[/\\\\].+\\.(js|jsx|mjs)$"],
+    "transformIgnorePatterns": [
+      "[/\\\\]node_modules[/\\\\].+\\.(js|jsx|mjs)$"
+    ],
     "moduleNameMapper": {
       "^react-native$": "react-native-web"
     },
@@ -114,7 +121,9 @@
     ]
   },
   "babel": {
-    "presets": ["react-app"]
+    "presets": [
+      "react-app"
+    ]
   },
   "eslintConfig": {
     "extends": "react-app"
