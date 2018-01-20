@@ -8,7 +8,8 @@ const mapState = (state, props) => {
     sources: state.feeds.sources,
     sourcesArray: Object.keys(state.feeds.sources),
     selected,
-    feeds: state.feeds.sources[selected].feeds
+    feeds: state.feeds.sources[selected].feeds,
+    loading: state.feeds.sources[selected].fetching
   };
 };
 
