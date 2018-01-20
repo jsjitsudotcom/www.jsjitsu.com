@@ -1,3 +1,13 @@
+<a name="1.2.5"></a>
+## [1.2.5](https://bitbucket.org/MarquesDev/jsjitsu-interface/compare/v1.2.4...v1.2.5) (2018-01-20)
+
+
+### Bug Fixes
+
+* **optimisation:** header svg outline et plus en font ([739bd5a](https://bitbucket.org/MarquesDev/jsjitsu-interface/commits/739bd5a))
+
+
+
 <a name="1.2.4"></a>
 ## [1.2.4](https://bitbucket.org/MarquesDev/jsjitsu-interface/compare/v1.2.3...v1.2.4) (2018-01-20)
 
