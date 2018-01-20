@@ -1,3 +1,13 @@
+<a name="1.2.3"></a>
+## [1.2.3](https://bitbucket.org/MarquesDev/jsjitsu-interface/compare/v1.2.2...v1.2.3) (2018-01-20)
+
+
+### Bug Fixes
+
+* **amplitude:** ajout de la bonne cle ([2cc8c12](https://bitbucket.org/MarquesDev/jsjitsu-interface/commits/2cc8c12))
+
+
+
 <a name="1.2.2"></a>
 ## [1.2.2](https://bitbucket.org/MarquesDev/jsjitsu-interface/compare/v1.2.1...v1.2.2) (2018-01-20)
 
