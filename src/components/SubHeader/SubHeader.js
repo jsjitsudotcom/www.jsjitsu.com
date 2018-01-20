@@ -12,6 +12,7 @@ export default class SubHeader extends PureComponent {
         <div className={Style.tabs}>
           {this.props.tabs.map((tab, index) => (
             <div
+              key={tab}
               onClick={() => this.props.onSelect(tab)}
               className={getTabClassName(tab, this.props.selected)}
             >
