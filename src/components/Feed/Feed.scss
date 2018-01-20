@@ -8,6 +8,16 @@
   border-radius: 4px;
   padding: 0 10px;
   overflow: hidden;
+
+  &:visited {
+    :local(.index) {
+      background-color: #fbfbfb;
+      color: #d3d3d3;
+    }
+    :local(.title) {
+      color: #e1e1e1;
+    }
+  }
 }
 
 :local(.readed) {
@@ -16,7 +26,7 @@
     color: #d3d3d3;
   }
   :local(.title) {
-      color: #E1E1E1;
+    color: #e1e1e1;
   }
 }
 

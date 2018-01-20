@@ -1,8 +1,8 @@
-import { RSS_ENDPOINT } from "./../config";
+import config from "./../config";
 
 const RSS = {
   fetchFeeds: /* istanbul ignore next */ url => {
-    const endpoint = `${RSS_ENDPOINT}/feeds?url=${url}`;
+    const endpoint = `${config.RSS_ENDPOINT}/feeds?url=${url}`;
     return fetch(endpoint).then(response => response.json());
   },
   fetchSource(url) {

@@ -1,2 +1,11 @@
-export const RSS_ENDPOINT = "https://jdys2ftxag.execute-api.eu-west-1.amazonaws.com/production";
-// export const RSS_ENDPOINT = "http://localhost:7654";
+import production from "./production";
+import development from "./development";
+import test from "./test";
+
+const config = {
+  production: production,
+  development: development,
+  test: test
+};
+
+export default Object.freeze(Object.assign({}, config[process.env.NODE_ENV]));
