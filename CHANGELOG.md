@@ -1,3 +1,13 @@
+<a name="1.2.6"></a>
+## [1.2.6](https://bitbucket.org/MarquesDev/jsjitsu-interface/compare/v1.2.5...v1.2.6) (2018-01-20)
+
+
+### Bug Fixes
+
+* **son et favicon:** suppression des sons et ajout des favicons ([2c7a95e](https://bitbucket.org/MarquesDev/jsjitsu-interface/commits/2c7a95e))
+
+
+
 <a name="1.2.5"></a>
 ## [1.2.5](https://bitbucket.org/MarquesDev/jsjitsu-interface/compare/v1.2.4...v1.2.5) (2018-01-20)
 
