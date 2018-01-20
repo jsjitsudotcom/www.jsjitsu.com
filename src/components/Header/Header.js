@@ -9,13 +9,12 @@ export default class Header extends PureComponent {
     return (
       <header className={Style.container}>
         <Click sound={9}>
-          <div className={Style.menu}>
+          <div className={Style.menu} onClick={this.props.onClickMenu}>
             <img src={Menu} alt="menu" />
           </div>
         </Click>
         <div className={Style.logo}>
           <img src={Logo} alt="logo" />
-          {process.env.VERSION}
         </div>
       </header>
     );

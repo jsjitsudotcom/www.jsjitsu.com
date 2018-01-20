@@ -3,9 +3,12 @@ import Style from "./Home.scss";
 import Header from "./../../components/Header/Header";
 import SubHeader from "./../../components/SubHeader/SubHeader";
 import Feed from "./../../components/Feed/Feed";
+import Menu from "./../../components/Menu/Menu";
 import Connect from "./../../containers/Home";
 
 class Home extends PureComponent {
+  state = { menu: true };
+
   fakeFeeds = Array.from(new Array(5)).map((feed, index) => (
     <div className={Style.feed} key={index + "/loading"}>
       <Feed loading={true} loadingDelay={50 * (index + 1)} index={index + 1} />
@@ -21,10 +24,19 @@ class Home extends PureComponent {
     return [];
   }
 
+  openMenu() {
+    this.setState({menu: true});
+  }
+
+  closeMenu() {
+    this.setState({menu: false});
+  }
+
   render() {
     return (
       <div>
-        <Header fixed />
+        <Menu open={this.state.menu} onClose={this.closeMenu.bind(this)}/>
+        <Header fixed onClickMenu={this.openMenu.bind(this)}/>
         <SubHeader
           fixed
           tabs={this.props.sourcesArray}
