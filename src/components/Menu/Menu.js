@@ -2,7 +2,6 @@ import React, { PureComponent } from "react";
 import Style from "./Menu.scss";
 import PropTypes from "prop-types";
 import Logo from "./../../assets/logo/header.svg";
-import Click from "./../../components/Sound/Click";
 
 export default class Menu extends PureComponent {
   render() {
@@ -11,9 +10,7 @@ export default class Menu extends PureComponent {
       : Style.container;
     return (
       <div className={styleContainer}>
-        <Click sound={8}>
-          <div className={Style.overlay} onClick={this.props.onClose} />
-        </Click>
+        <div className={Style.overlay} onClick={this.props.onClose} />
         <div className={Style.menu}>
           <div className={Style.wrapper}>
             <div className={Style.menuHeader}>

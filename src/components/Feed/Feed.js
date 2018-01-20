@@ -1,23 +1,35 @@
 import React, { PureComponent } from "react";
 import Style from "./Feed.scss";
-import Click from "./../Sound/Click";
 import PropTypes from "prop-types";
+import Amplitude from "../../utils/amplitude";
 
 const Loading = ({ delay }) => (
   <div className={Style.loading} style={{ animationDelay: delay + "ms" }} />
 );
+
+const logEvent = ({ link, title }) => () =>
+  Amplitude.logEvent("FEED_CLICK", {
+    link,
+    title
+  });
 
 export default class Feed extends PureComponent {
   render() {
     return this.props.loading ? (
       <Loading delay={this.props.loadingDelay} />
     ) : (
-      <Click sound={3}>
-        <a href={this.props.link} className={Style.container} target="blank">
-          <div className={Style.index}>{this.props.index}</div>
-          <div className={Style.title}>{this.props.title}</div>
-        </a>
-      </Click>
+      <a
+        href={this.props.link}
+        className={Style.container}
+        target="blank"
+        onClick={logEvent({
+          title: this.props.title,
+          link: this.props.link
+        })}
+      >
+        <div className={Style.index}>{this.props.index}</div>
+        <div className={Style.title}>{this.props.title}</div>
+      </a>
     );
   }
 }
