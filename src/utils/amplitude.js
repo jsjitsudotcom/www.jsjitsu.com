@@ -4,7 +4,6 @@ const key = "b87e5a75ab4b6bac5d50ba429b62e6be";
 
 const getInstance = () => {
   let instance = Amplitude.getInstance();
-  console.log(instance);
   instance.init(key);
   instance.setVersionName(process.env.VERSION);
   return instance;
