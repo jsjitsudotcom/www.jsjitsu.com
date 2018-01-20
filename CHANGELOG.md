@@ -1,3 +1,13 @@
+<a name="1.2.1"></a>
+## [1.2.1](https://bitbucket.org/MarquesDev/jsjitsu-interface/compare/v1.2.0...v1.2.1) (2018-01-20)
+
+
+### Bug Fixes
+
+* **manifest:** ajout de toutes les images dans le manifest ([8e5f5a2](https://bitbucket.org/MarquesDev/jsjitsu-interface/commits/8e5f5a2))
+
+
+
 <a name="1.2.0"></a>
 # [1.2.0](https://bitbucket.org/MarquesDev/jsjitsu-interface/compare/v1.0.4...v1.2.0) (2018-01-20)
 
