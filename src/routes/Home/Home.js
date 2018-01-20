@@ -7,7 +7,7 @@ import Menu from "./../../components/Menu/Menu";
 import Connect from "./../../containers/Home";
 
 class Home extends PureComponent {
-  state = { menu: true };
+  state = { menu: false };
 
   fakeFeeds = Array.from(new Array(5)).map((feed, index) => (
     <div className={Style.feed} key={index + "/loading"}>
@@ -25,18 +25,18 @@ class Home extends PureComponent {
   }
 
   openMenu() {
-    this.setState({menu: true});
+    this.setState({ menu: true });
   }
 
   closeMenu() {
-    this.setState({menu: false});
+    this.setState({ menu: false });
   }
 
   render() {
     return (
       <div>
-        <Menu open={this.state.menu} onClose={this.closeMenu.bind(this)}/>
-        <Header fixed onClickMenu={this.openMenu.bind(this)}/>
+        <Menu open={this.state.menu} onClose={this.closeMenu.bind(this)} />
+        <Header fixed onClickMenu={this.openMenu.bind(this)} />
         <SubHeader
           fixed
           tabs={this.props.sourcesArray}
