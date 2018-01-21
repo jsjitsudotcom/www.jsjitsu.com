@@ -21,7 +21,6 @@ export default class Feed extends PureComponent {
       <a
         href={this.props.link}
         className={Style.container}
-        target="blank"
         onClick={logEvent({
           title: this.props.title,
           link: this.props.link
