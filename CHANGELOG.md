@@ -1,3 +1,13 @@
+<a name="1.2.9"></a>
+## [1.2.9](https://bitbucket.org/MarquesDev/jsjitsu-interface/compare/v1.2.8...v1.2.9) (2018-01-21)
+
+
+### Bug Fixes
+
+* **link:** suppression de target blank dans feed ([25282bb](https://bitbucket.org/MarquesDev/jsjitsu-interface/commits/25282bb))
+
+
+
 <a name="1.2.8"></a>
 ## [1.2.8](https://bitbucket.org/MarquesDev/jsjitsu-interface/compare/v1.2.7...v1.2.8) (2018-01-21)
 
