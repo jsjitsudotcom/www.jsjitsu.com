@@ -12,7 +12,7 @@ class Home extends PureComponent {
 
   fakeFeeds = Array.from(new Array(5)).map((feed, index) => (
     <div className={Style.feed} key={index + "/loading"}>
-      <Feed loading={true} loadingDelay={50 * (index + 1)} index={index + 1} />
+      <Feed loading={true} loadingDelay={50 * index} index={index + 1} />
     </div>
   ));
 
