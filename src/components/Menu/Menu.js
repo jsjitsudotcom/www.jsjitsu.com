@@ -17,19 +17,39 @@ export default class Menu extends PureComponent {
               <img src={Logo} alt="menu" />
             </div>
             <div className={Style.tabs}>
-              <a href="#/" className={Style.tab}>
+              <a
+                href="https://medium.com/jsjitsu/foire-aux-questions-ccd7b515429d"
+                target="blank"
+                className={Style.tab}
+              >
                 C'est quoi jsjitsu ?
               </a>
-              <a href="#/" className={Style.tab}>
+              <a
+                href="https://medium.com/jsjitsu/politique-de-confidentialit%C3%A9-a91107de4b69"
+                target="blank"
+                className={Style.tab}
+              >
                 Confidentialité
               </a>
-              <a href="#/" className={Style.tab}>
+              <a
+                href="https://www.facebook.com/jsjitsu/"
+                target="blank"
+                className={Style.tab}
+              >
                 Page Facebook
               </a>
-              <a href="#/" className={Style.tab}>
+              <a
+                href="https://twitter.com/jsjitsudotcom"
+                target="blank"
+                className={Style.tab}
+              >
                 Page Twitter
               </a>
-              <a href="#/" className={Style.tab}>
+              <a
+                href="https://medium.com/jsjitsu"
+                target="blank"
+                className={Style.tab}
+              >
                 Page Medium
               </a>
             </div>
