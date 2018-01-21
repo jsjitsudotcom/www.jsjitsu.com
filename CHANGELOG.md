@@ -1,3 +1,13 @@
+<a name="1.2.7"></a>
+## [1.2.7](https://bitbucket.org/MarquesDev/jsjitsu-interface/compare/v1.2.6...v1.2.7) (2018-01-21)
+
+
+### Bug Fixes
+
+* **menu:** ajout des liens du menu ([e422c2c](https://bitbucket.org/MarquesDev/jsjitsu-interface/commits/e422c2c))
+
+
+
 <a name="1.2.6"></a>
 ## [1.2.6](https://bitbucket.org/MarquesDev/jsjitsu-interface/compare/v1.2.5...v1.2.6) (2018-01-20)
 
