@@ -1,3 +1,13 @@
+<a name="1.2.10"></a>
+## [1.2.10](https://bitbucket.org/MarquesDev/jsjitsu-interface/compare/v1.2.9...v1.2.10) (2018-01-26)
+
+
+### Bug Fixes
+
+* **api:** add echojs api ([1f95e36](https://bitbucket.org/MarquesDev/jsjitsu-interface/commits/1f95e36))
+
+
+
 <a name="1.2.9"></a>
 ## [1.2.9](https://bitbucket.org/MarquesDev/jsjitsu-interface/compare/v1.2.8...v1.2.9) (2018-01-21)
 
