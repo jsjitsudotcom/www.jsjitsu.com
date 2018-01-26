@@ -1,5 +1,5 @@
 import * as types from "../constants/feeds";
-import rss from "./../utils/rss";
+import Api from "./../utils/api";
 
 /**
  * Permet de créer une nouvelle source
@@ -79,7 +79,7 @@ export const fetchSource = name => (dispatcher, getState) => {
 
   dispatcher(fetchingSource(name));
 
-  return rss.fetchSource(source.url).then(response => {
+  return Api.getFeeds(name.toLocaleLowerCase()).then(response => {
     dispatcher(addFeeds(name, response.feeds));
     return dispatcher(fetchEndSource(name));
   });

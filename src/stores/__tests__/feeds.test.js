@@ -1,4 +1,4 @@
-jest.mock("./../../utils/rss");
+jest.mock("./../../utils/api");
 import createStore from "./../index";
 import actions from "./../../actions";
 
@@ -49,7 +49,7 @@ describe("feeds test suite", () => {
     expect(state.feeds.selected).toEqual("Echojs");
   });
 
-  it("should fetch feeds from source when selected and no feeds are in reducer", (done) => {
+  it("should fetch feeds from source when selected and no feeds are in reducer", done => {
     const store = createStore();
     store.dispatch(
       actions.feeds.addSource("Echojs", "http://www.echojs.com/rss")
@@ -67,11 +67,15 @@ describe("feeds test suite", () => {
     expect(state.feeds.sources["Echojs"].fetching).toBeTruthy();
   });
 
-  it("should not fetch feeds from source when feeds are already in source", (done) => {
+  it("should not fetch feeds from source when feeds are already in source", done => {
     const store = createStore();
-    store.dispatch(actions.feeds.addSource("Echojs", "http://www.echojs.com/rss"));
+    store.dispatch(
+      actions.feeds.addSource("Echojs", "http://www.echojs.com/rss")
+    );
     store.dispatch(actions.feeds.selectSource("Echojs"));
-    store.dispatch(actions.feeds.addFeeds("Echojs", [{ link: 1 }, { link: 2 }]));
+    store.dispatch(
+      actions.feeds.addFeeds("Echojs", [{ link: 1 }, { link: 2 }])
+    );
 
     store.dispatch(actions.feeds.fetchSource("Echojs")).then(() => {
       const state = store.getState();
