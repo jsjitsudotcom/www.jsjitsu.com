@@ -71,16 +71,13 @@ export const fetchSource = name => (dispatcher, getState) => {
   /* istanbul ignore next */
   if (!source)
     return Promise.reject(`The source with name ${name} does not exist`);
-  /* istanbul ignore next */
-  if (!source.url)
-    return Promise.reject(`The source ${name} does not have an url`);
 
   if (source.feeds.length > 0) return Promise.resolve();
 
   dispatcher(fetchingSource(name));
 
   return Api.getFeeds(name.toLocaleLowerCase()).then(response => {
-    dispatcher(addFeeds(name, response.feeds));
+    dispatcher(addFeeds(name, response));
     return dispatcher(fetchEndSource(name));
   });
 };

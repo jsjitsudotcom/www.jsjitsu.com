@@ -9,7 +9,10 @@ const store = createStore({
     sources: {
       Echojs: {
         name: "Echojs",
-        url: "http://www.echojs.com/rss",
+        feeds: []
+      },
+      Medium: {
+        name: "Medium",
         feeds: []
       }
     }

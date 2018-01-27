@@ -18,7 +18,10 @@ const mapDispatch = (dispatch, props) => {
     addFeeds: (source, feeds) =>
       dispatch(actions.feeds.addFeeds(source, feeds)),
     fetchSource: source => dispatch(actions.feeds.fetchSource(source)),
-    selectSource: source => dispatch(actions.feeds.selectSource(source))
+    selectSource: source => {
+      dispatch(actions.feeds.selectSource(source));
+      return dispatch(actions.feeds.fetchSource(source));
+    }
   };
 };
 
