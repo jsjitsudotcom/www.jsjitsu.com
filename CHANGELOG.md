@@ -1,3 +1,13 @@
+<a name="1.3.0"></a>
+# [1.3.0](https://bitbucket.org/MarquesDev/jsjitsu-interface/compare/v1.2.10...v1.3.0) (2018-01-27)
+
+
+### Features
+
+* **medium:** add medium source ([907c57a](https://bitbucket.org/MarquesDev/jsjitsu-interface/commits/907c57a))
+
+
+
 <a name="1.2.10"></a>
 ## [1.2.10](https://bitbucket.org/MarquesDev/jsjitsu-interface/compare/v1.2.9...v1.2.10) (2018-01-26)
 
