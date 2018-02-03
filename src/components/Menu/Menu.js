@@ -2,8 +2,15 @@ import React, { PureComponent } from "react";
 import Style from "./Menu.scss";
 import PropTypes from "prop-types";
 import Logo from "./../../assets/logo/header.svg";
+import Amplitude from "./../../utils/amplitude";
 
 export default class Menu extends PureComponent {
+  onClick(e) {
+    Amplitude.logEvent("MENU_LINK_CLICK", {
+      url: e.target.href
+    });
+  }
+
   render() {
     const styleContainer = this.props.open
       ? Style.containerOpen
@@ -20,22 +27,36 @@ export default class Menu extends PureComponent {
               <a
                 href="https://medium.com/jsjitsu/foire-aux-questions-ccd7b515429d"
                 className={Style.tab}
+                onClick={this.onClick}
               >
                 C'est quoi jsjitsu ?
               </a>
               <a
                 href="https://medium.com/jsjitsu/politique-de-confidentialit%C3%A9-a91107de4b69"
                 className={Style.tab}
+                onClick={this.onClick}
               >
                 Confidentialité
               </a>
-              <a href="https://www.facebook.com/jsjitsu/" className={Style.tab}>
+              <a
+                href="https://www.facebook.com/jsjitsu/"
+                className={Style.tab}
+                onClick={this.onClick}
+              >
                 Page Facebook
               </a>
-              <a href="https://twitter.com/jsjitsudotcom" className={Style.tab}>
+              <a
+                href="https://twitter.com/jsjitsudotcom"
+                className={Style.tab}
+                onClick={this.onClick}
+              >
                 Page Twitter
               </a>
-              <a href="https://medium.com/jsjitsu" className={Style.tab}>
+              <a
+                href="https://medium.com/jsjitsu"
+                className={Style.tab}
+                onClick={this.onClick}
+              >
                 Page Medium
               </a>
             </div>

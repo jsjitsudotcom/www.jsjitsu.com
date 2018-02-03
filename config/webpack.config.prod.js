@@ -363,8 +363,10 @@ module.exports = {
       staticFileGlobsIgnorePatterns: [/\.map$/, /asset-manifest\.json$/],
       runtimeCaching: [
         {
-          urlPattern: /eu-west-1\.amazonaws\.com\/production/,
-          handler: "fastest"
+          urlPattern: /eu-west-1\.amazonaws\.com/,
+          handler: "cacheFirst",
+          name: "feeds-cache",
+          maxAgeSeconds: 60 * 10
         }
       ]
     }),
