@@ -1,3 +1,13 @@
+<a name="1.4.2"></a>
+## [1.4.2](https://bitbucket.org/MarquesDev/jsjitsu-interface/compare/v1.4.1...v1.4.2) (2018-02-03)
+
+
+### Bug Fixes
+
+* **amplitude:** ajout d'amplitude dans le menu click ([ff0e41a](https://bitbucket.org/MarquesDev/jsjitsu-interface/commits/ff0e41a))
+
+
+
 <a name="1.4.1"></a>
 ## [1.4.1](https://bitbucket.org/MarquesDev/jsjitsu-interface/compare/v1.4.0...v1.4.1) (2018-02-03)
 
