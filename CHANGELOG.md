@@ -1,3 +1,13 @@
+<a name="1.4.4"></a>
+## [1.4.4](https://github.com/jsjitsudotcom/www.jsjitsu.com/compare/v1.4.3...v1.4.4) (2018-02-03)
+
+
+### Bug Fixes
+
+* **circleci:** ajout de circleci ([7326c2e](https://github.com/jsjitsudotcom/www.jsjitsu.com/commit/7326c2e))
+
+
+
 <a name="1.4.3"></a>
 ## [1.4.3](https://github.com/jsjitsudotcom/www.jsjitsu.com/compare/v1.4.2...v1.4.3) (2018-02-03)
 
