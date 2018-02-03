@@ -1,3 +1,13 @@
+<a name="1.4.0"></a>
+# [1.4.0](https://bitbucket.org/MarquesDev/jsjitsu-interface/compare/v1.3.0...v1.4.0) (2018-02-03)
+
+
+### Features
+
+* **feeds:** ajouts des demandes de sources ([24a6858](https://bitbucket.org/MarquesDev/jsjitsu-interface/commits/24a6858))
+
+
+
 <a name="1.3.0"></a>
 # [1.3.0](https://bitbucket.org/MarquesDev/jsjitsu-interface/compare/v1.2.10...v1.3.0) (2018-01-27)
 

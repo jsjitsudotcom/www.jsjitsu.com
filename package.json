@@ -1,6 +1,6 @@
 {
   "name": "site",
-  "version": "1.3.0",
+  "version": "1.4.0",
   "private": true,
   "dependencies": {
     "amplitude-js": "https://github.com/amplitude/Amplitude-Javascript.git",
