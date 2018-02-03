@@ -9,7 +9,7 @@ import Connect from "./../../containers/Home";
 import Amplitude from "./../../utils/amplitude";
 
 class Home extends PureComponent {
-  state = { menu: false, modalSubmitFeed: true };
+  state = { menu: false, modalSubmitFeed: false };
 
   fakeFeeds = Array.from(new Array(5)).map((feed, index) => (
     <div className={Style.feed} key={index + "/loading"}>
