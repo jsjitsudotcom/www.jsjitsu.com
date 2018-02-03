@@ -1,6 +1,7 @@
 import React, { PureComponent } from "react";
 import Style from "./Header.scss";
 import Menu from "./../../assets/material-icons/menu.svg";
+import Add from "./../../assets/material-icons/add.svg";
 import Logo from "./../../assets/logo/header.svg";
 
 export default class Header extends PureComponent {
@@ -12,6 +13,9 @@ export default class Header extends PureComponent {
         </div>
         <div className={Style.logo}>
           <img src={Logo} alt="logo" />
+        </div>
+        <div className={Style.add} onClick={this.props.onClickSubmitFeed}>
+          <img src={Add} alt="add" />
         </div>
       </header>
     );

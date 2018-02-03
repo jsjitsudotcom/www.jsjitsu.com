@@ -31,3 +31,11 @@
   align-items: center;
   justify-content: center;
 }
+
+:local(.add) {
+  flex-shrink: 0;
+  position: relative;
+  margin-left: auto;
+  z-index: 2;
+  cursor: pointer;
+}

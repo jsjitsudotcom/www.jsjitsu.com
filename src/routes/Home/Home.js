@@ -4,11 +4,12 @@ import Header from "./../../components/Header/Header";
 import SubHeader from "./../../components/SubHeader/SubHeader";
 import Feed from "./../../components/Feed/Feed";
 import Menu from "./../../components/Menu/Menu";
+import ModalSubmitFeed from "./../../components/ModalSubmitFeed/ModalSubmitFeed";
 import Connect from "./../../containers/Home";
 import Amplitude from "./../../utils/amplitude";
 
 class Home extends PureComponent {
-  state = { menu: false };
+  state = { menu: false, modalSubmitFeed: true };
 
   fakeFeeds = Array.from(new Array(5)).map((feed, index) => (
     <div className={Style.feed} key={index + "/loading"}>
@@ -30,6 +31,11 @@ class Home extends PureComponent {
     this.setState({ menu: true });
   }
 
+  openSubmitFeed() {
+    Amplitude.logEvent("SUBMIT_FEED_OPEN");
+    this.setState({ modalSubmitFeed: true });
+  }
+
   closeMenu() {
     Amplitude.logEvent("MENU_CLOSE");
     this.setState({ menu: false });
@@ -39,7 +45,15 @@ class Home extends PureComponent {
     return (
       <div>
         <Menu open={this.state.menu} onClose={this.closeMenu.bind(this)} />
-        <Header fixed onClickMenu={this.openMenu.bind(this)} />
+        <ModalSubmitFeed
+          open={this.state.modalSubmitFeed}
+          onClose={() => this.setState({ modalSubmitFeed: false })}
+        />
+        <Header
+          fixed
+          onClickMenu={this.openMenu.bind(this)}
+          onClickSubmitFeed={this.openSubmitFeed.bind(this)}
+        />
         <SubHeader
           fixed
           tabs={this.props.sourcesArray}
