@@ -1,3 +1,13 @@
+<a name="1.4.1"></a>
+## [1.4.1](https://bitbucket.org/MarquesDev/jsjitsu-interface/compare/v1.4.0...v1.4.1) (2018-02-03)
+
+
+### Bug Fixes
+
+* **feeds:** ajout de max width et amélioration de l'animation d'apparition ([107c72a](https://bitbucket.org/MarquesDev/jsjitsu-interface/commits/107c72a))
+
+
+
 <a name="1.4.0"></a>
 # [1.4.0](https://bitbucket.org/MarquesDev/jsjitsu-interface/compare/v1.3.0...v1.4.0) (2018-02-03)
 
