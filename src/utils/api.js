@@ -1,12 +1,10 @@
 import config from "./../config";
 
 export default {
-  makeRequest(source) {
-    return fetch(`${config.RSS_ENDPOINT}/feeds/${source}`).then(response =>
-      response.json()
-    );
-  },
   getFeeds(source) {
-    return this.makeRequest(source);
+    return fetch(`${config.RSS_ENDPOINT}/feeds/${source}`).then(response => {
+      if (response.ok) return response.json();
+      return response.json().then(e => Promise.reject(e));
+    });
   }
 };

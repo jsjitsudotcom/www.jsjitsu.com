@@ -18,24 +18,11 @@ describe("<Feed />", () => {
       console.error.restore();
     });
 
-    test("should have onClickDetails prop invalidate if not a function", () => {
-      const props = ["title", "link", "loading", "loadingDelay"];
+    test("Vérification que toutes les props soient bien dans les propTypes", () => {
+      const props = ["title", "index", "link", "loading", "loadingDelay"];
+      const propTypes = Object.keys(Feed.propTypes);
 
-      const checkInvalidateProps = prop => {
-        console.error = sinon.spy();
-        shallow(<Feed {...{ [prop]: false }} />);
-        shallow(<Feed {...{ [prop]: 0 }} />);
-        shallow(<Feed {...{ [prop]: "0" }} />);
-        shallow(<Feed {...{ [prop]: [] }} />);
-        shallow(<Feed {...{ [prop]: () => false }} />);
-
-        expect(console.error.callCount).to.equal(
-          4,
-          `${prop} doit etre dans les PropTypes`
-        );
-      };
-
-      props.map(checkInvalidateProps);
+      expect(props).to.deep.eq(propTypes);
     });
   });
 

@@ -37,8 +37,8 @@ export default class ModalSubmitFeed extends PureComponent {
           {this.state.step === "form" && (
             <Form
               value={this.state.value}
-              onChange={this.onChange.bind(this)}
-              onSubmit={this.onSubmit.bind(this)}
+              onChange={e => this.onChange(e)}
+              onSubmit={e => this.onSubmit(e)}
             />
           )}
           {this.state.step === "success" && <Success />}
@@ -85,10 +85,11 @@ const Success = () => (
 );
 
 ModalSubmitFeed.propTypes = {
-  open: PropTypes.bool
+  open: PropTypes.bool,
+  onClose: PropTypes.func
 };
 
 ModalSubmitFeed.defaultProps = {
   open: false,
-  onClose: () => false
+  onClose: () => console.warn("defaultProps: ModalSubmitFeed.onClose()")
 };

@@ -18,24 +18,11 @@ describe("<Header />", () => {
       console.error.restore();
     });
 
-    test("should have onClickDetails prop invalidate if not a function", () => {
+    test("Vérification que toutes les props soient bien dans les propTypes", () => {
       const props = ["onClickMenu", "onClickSubmitFeed"];
+      const propTypes = Object.keys(Header.propTypes);
 
-      const checkInvalidateProps = prop => {
-        console.error = sinon.spy();
-        shallow(<Header {...{ [prop]: false }} />);
-        shallow(<Header {...{ [prop]: 0 }} />);
-        shallow(<Header {...{ [prop]: "0" }} />);
-        shallow(<Header {...{ [prop]: [] }} />);
-        shallow(<Header {...{ [prop]: () => false }} />);
-
-        expect(console.error.callCount).to.equal(
-          4,
-          `${prop} doit etre dans les PropTypes`
-        );
-      };
-
-      props.map(checkInvalidateProps);
+      expect(props).to.deep.eq(propTypes);
     });
   });
 
