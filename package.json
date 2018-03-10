@@ -68,6 +68,7 @@
     "precommit": "npm run test:ci && lint-staged",
     "commit": "git-cz",
     "do:release": "corp-semantic-release",
+    "coveralls": "cat ./coverage/lcov.info | npx coveralls",
     "release":
       "npm run test:ci && npm run do:release && npm run build && npm run deploy:ci",
     "gzip:sw":
