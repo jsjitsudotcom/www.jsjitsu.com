@@ -64,7 +64,7 @@
       "node scripts/build.js && npm run gzip:sw && npm run load-css && npm run gzip:html",
     "test": "node scripts/test.js --env=jsdom",
     "test:ci": "CI=true node scripts/test.js --env=jsdom",
-    "coverage": "CI=true node scripts/test.js --env=jsdom --coverage",
+    "coverage": "node scripts/test.js --env=jsdom --coverage",
     "precommit": "npm run test:ci && lint-staged",
     "commit": "git-cz",
     "do:release": "corp-semantic-release",

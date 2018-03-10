@@ -30,3 +30,8 @@ SubHeader.propTypes = {
   selected: PropTypes.string,
   onSelect: PropTypes.func
 };
+
+SubHeader.defaultProps = {
+  tabs: [],
+  onSelect: () => console.warn("defaultProps: SubHeader.onSelect()")
+};
