@@ -3,7 +3,6 @@ import { shallow } from "enzyme";
 import { expect } from "chai";
 import sinon from "sinon";
 import Feed from "./../Feed";
-import { forEachObjIndexed } from "ramda";
 
 describe("<Feed />", () => {
   it("Le componsant doit être rendu", () => {
@@ -67,14 +66,31 @@ describe("<Feed />", () => {
     });
   });
 
-  // describe("Suite de test les interactions", () => {
-  //   test("Doit appeler la prop onClose lors du clique sur la flèche", () => {
-  //     const onClickDetails = sinon.spy();
-  //     const wrapper = shallow(<Feed onClickDetails={onClickDetails} />);
+  describe("Suite de tests sur le pure rendering", () => {
+    it("Le composant doit être un pure composant", () => {
+      let wrapper = shallow(
+        <Feed
+          title="title"
+          link="link"
+          index="0"
+          loading={false}
+          loadingDelay={200}
+        />
+      );
 
-  //     wrapper.find(".moreBtn").simulate("click");
+      let spy = sinon.spy(wrapper.instance(), "render");
 
-  //     expect(onClickDetails.called).to.eq(true);
-  //   });
-  // });
+      wrapper.update();
+      expect(spy.callCount).to.eq(
+        0,
+        "L'update ne doit pas faire un nouveau render"
+      );
+
+      wrapper.setProps({ title: "title" });
+      expect(spy.callCount).to.eq(
+        0,
+        "Mettre à jour une props sans changer la valeur ne doit pas faire de nouveau rendu"
+      );
+    });
+  });
 });

@@ -1,4 +1,5 @@
 import React, { PureComponent } from "react";
+import PropTypes from "prop-types";
 import Style from "./Header.scss";
 import Menu from "./../../assets/material-icons/menu.svg";
 import Add from "./../../assets/material-icons/add.svg";
@@ -21,3 +22,8 @@ export default class Header extends PureComponent {
     );
   }
 }
+
+Header.propTypes = {
+  onClickMenu: PropTypes.func,
+  onClickSubmitFeed: PropTypes.func
+};
