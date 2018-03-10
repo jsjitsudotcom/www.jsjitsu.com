@@ -27,35 +27,35 @@ export default class Menu extends PureComponent {
               <a
                 href="https://medium.com/jsjitsu/foire-aux-questions-ccd7b515429d"
                 className={Style.tab}
-                onClick={this.onClick}
+                onClick={() => this.onClick()}
               >
                 C'est quoi jsjitsu ?
               </a>
               <a
                 href="https://medium.com/jsjitsu/politique-de-confidentialit%C3%A9-a91107de4b69"
                 className={Style.tab}
-                onClick={this.onClick}
+                onClick={() => this.onClick()}
               >
                 Confidentialité
               </a>
               <a
                 href="https://www.facebook.com/jsjitsu/"
                 className={Style.tab}
-                onClick={this.onClick}
+                onClick={() => this.onClick()}
               >
                 Page Facebook
               </a>
               <a
                 href="https://twitter.com/jsjitsudotcom"
                 className={Style.tab}
-                onClick={this.onClick}
+                onClick={() => this.onClick()}
               >
                 Page Twitter
               </a>
               <a
                 href="https://medium.com/jsjitsu"
                 className={Style.tab}
-                onClick={this.onClick}
+                onClick={() => this.onClick()}
               >
                 Page Medium
               </a>
@@ -70,9 +70,11 @@ export default class Menu extends PureComponent {
 }
 
 Menu.propTypes = {
-  open: PropTypes.bool
+  open: PropTypes.bool,
+  onClose: PropTypes.func
 };
 
 Menu.defaultProps = {
-  open: false
+  open: false,
+  onClose: () => console.warn("defaultProps: Menu.onClose()")
 };
