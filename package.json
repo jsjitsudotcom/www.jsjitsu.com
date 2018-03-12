@@ -97,6 +97,7 @@
       "!src/containers/**",
       "!src/utils/sentry.js",
       "!src/utils/amplitude.js",
+      "!src/routes/**",
       "!src/registerServiceWorker.js"
     ],
     "setupFiles": ["<rootDir>/config/polyfills.js"],
