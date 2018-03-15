@@ -1,5 +1,6 @@
 import React, { PureComponent } from "react";
 import Style from "./Home.scss";
+import PropTypes from "prop-types";
 import Header from "./../../components/Header/Header";
 import SubHeader from "./../../components/SubHeader/SubHeader";
 import Feed from "./../../components/Feed/Feed";
@@ -74,4 +75,19 @@ class Home extends PureComponent {
   }
 }
 
+Home.propTypes = {
+  fetchSource: PropTypes.func,
+  selected: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
+  loading: PropTypes.bool,
+  sourceArray: PropTypes.array,
+  selectSource: PropTypes.func
+};
+
+Home.defaultProps = {
+  feeds: [],
+  fetchSource: /* istanbul ignore next */ () =>
+    console.warn("defaultProps: Home.fetchSource()")
+};
+
 export default Connect(Home);
+export const Component = Home;

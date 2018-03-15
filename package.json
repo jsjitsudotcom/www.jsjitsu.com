@@ -58,6 +58,7 @@
   },
   "scripts": {
     "commitmsg": "commitlint -e $GIT_PARAMS",
+    "open-coverage": "open coverage/lcov-report/index.html",
     "preinstall": "node scripts/preinstall.js",
     "start": "node scripts/start.js",
     "start:production": "NODE_ENV=production node scripts/start.js",
@@ -95,10 +96,9 @@
       "!src/stores/**/*",
       "!src/index.js",
       "!src/config/*",
-      "!src/containers/**",
       "!src/utils/sentry.js",
       "!src/utils/amplitude.js",
-      "!src/routes/**",
+      "!src/routes/index.js",
       "!src/registerServiceWorker.js"
     ],
     "setupFiles": ["<rootDir>/config/polyfills.js"],

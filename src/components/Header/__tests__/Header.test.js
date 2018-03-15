@@ -19,7 +19,7 @@ describe("<Header />", () => {
     });
 
     test("Vérification que toutes les props soient bien dans les propTypes", () => {
-      const props = ["onClickMenu", "onClickSubmitFeed"];
+      const props = ["onClickMenu", "onClickSubmitFeed", "fixed"];
       const propTypes = Object.keys(Header.propTypes);
 
       expect(props).to.deep.eq(propTypes);

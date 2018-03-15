@@ -3,7 +3,7 @@ import Home from "./Home/Home";
 import { Provider } from "react-redux";
 import createStore from "./../stores";
 
-const store = createStore({
+const feeds = {
   feeds: {
     selected: "Echojs",
     sources: {
@@ -17,7 +17,9 @@ const store = createStore({
       }
     }
   }
-});
+};
+
+const store = createStore(feeds);
 
 export default (
   <Provider store={store}>

@@ -25,5 +25,6 @@ export default class Header extends PureComponent {
 
 Header.propTypes = {
   onClickMenu: PropTypes.func,
-  onClickSubmitFeed: PropTypes.func
+  onClickSubmitFeed: PropTypes.func,
+  fixed: PropTypes.bool
 };
