@@ -76,5 +76,6 @@ Menu.propTypes = {
 
 Menu.defaultProps = {
   open: false,
-  onClose: () => console.warn("defaultProps: Menu.onClose()")
+  onClose: /* istanbul ignore next*/ () =>
+    console.warn("defaultProps: Menu.onClose()")
 };

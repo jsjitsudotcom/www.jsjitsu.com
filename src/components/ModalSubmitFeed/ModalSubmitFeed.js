@@ -91,5 +91,6 @@ ModalSubmitFeed.propTypes = {
 
 ModalSubmitFeed.defaultProps = {
   open: false,
-  onClose: () => console.warn("defaultProps: ModalSubmitFeed.onClose()")
+  onClose: /* istanbul ignore next */ () =>
+    console.warn("defaultProps: ModalSubmitFeed.onClose()")
 };

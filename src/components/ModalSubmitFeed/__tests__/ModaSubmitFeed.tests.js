@@ -110,7 +110,7 @@ describe("<ModalSubmitFeed />", () => {
         const wrapper = shallow(<ModalSubmitFeed open={true} />);
         const spy = sinon.spy(wrapper.instance(), "setState");
 
-        expect(wrapper.instance().onSubmit()).to.eq(false);
+        expect(wrapper.find("Form").prop("onSubmit")()).to.eq(false);
         expect(spy.called).to.eq(false, "La state ne doit pas avoir changée");
       });
 
@@ -123,7 +123,7 @@ describe("<ModalSubmitFeed />", () => {
 
         wrapper.setState({ value: "hello" });
 
-        wrapper.instance().onSubmit();
+        wrapper.find("Form").prop("onSubmit")();
 
         expect(spy.calledTwice).to.eq(
           true,
