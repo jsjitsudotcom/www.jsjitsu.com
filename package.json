@@ -13,6 +13,7 @@
     "babel-runtime": "6.26.0",
     "case-sensitive-paths-webpack-plugin": "2.1.1",
     "chalk": "1.1.3",
+    "classnames": "^2.2.5",
     "css-loader": "0.28.7",
     "dotenv": "4.0.0",
     "eslint": "4.10.0",
@@ -79,7 +80,9 @@
       "gzip build/index.html && mv build/index.html.gz build/index.html",
     "load-css": "node scripts/load-css.js",
     "deploy:production": "node scripts/deploy.js --stage production",
-    "deploy:ci": "CI=true npm run deploy:production"
+    "deploy:ci": "CI=true npm run deploy:production",
+    "storybook": "start-storybook -p 6006",
+    "build-storybook": "build-storybook"
   },
   "config": {
     "commitizen": {
@@ -135,6 +138,7 @@
   },
   "devDependencies": {
     "@commitlint/config-conventional": "^6.1.3",
+    "@storybook/react": "^3.3.15",
     "chai": "^4.1.2",
     "cheerio": "^1.0.0-rc.2",
     "commitizen": "^2.9.6",
