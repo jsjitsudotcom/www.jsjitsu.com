@@ -12,19 +12,43 @@ export default class Article extends PureComponent {
   };
 
   componentDidMount() {
-    this.onScroll();
+    this.listenScroll();
   }
 
-  onScroll() {
-    this.container.addEventListener("scroll", e => {
-      const scrollTop = e.target.scrollTop;
-      if (scrollTop >= 300)
-        this.setState({ showHeaderTopBg: true, hideTitle: true });
-      if (scrollTop <= 300)
-        this.setState({ showHeaderTopBg: false, hideTitle: false });
-      if (scrollTop >= 350) this.setState({ showTitleHeader: true });
-      if (scrollTop <= 350) this.setState({ showTitleHeader: false });
-    });
+  showHeader() {
+    if (this.state.showHeaderTopBg) return false;
+    return this.setState({ showHeaderTopBg: true, hideTitle: true });
+  }
+
+  hideHeader() {
+    if (!this.state.showHeaderTopBg) return false;
+    return this.setState({ showHeaderTopBg: false, hideTitle: false });
+  }
+
+  showTitleHeader() {
+    if (this.state.showTitleHeader) return false;
+    return this.setState({ showTitleHeader: true });
+  }
+
+  hideTitleHeader() {
+    if (!this.state.showTitleHeader) return false;
+    return this.setState({ showTitleHeader: false });
+  }
+
+  listenScroll() {
+    this.container.addEventListener(
+      "scroll",
+      /* istanbul ignore next */ e => this.onScroll(e)
+    );
+  }
+
+  onScroll(e) {
+    const scrollTop = e.target.scrollTop;
+    if (scrollTop >= 300) this.showHeader();
+    if (scrollTop <= 300) this.hideHeader();
+
+    if (scrollTop >= 350) this.showTitleHeader();
+    if (scrollTop <= 350) this.hideTitleHeader();
   }
 
   render() {
