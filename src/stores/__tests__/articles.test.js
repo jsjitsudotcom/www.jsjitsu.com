@@ -7,12 +7,27 @@ describe("Suite de tests des articles", () => {
     const store = createStore();
 
     const url = "http://echojs.com/mon-article";
+
+    store.dispatch(actions.articles.storeArticle(url));
+
+    const state = store.getState();
+
+    const article = state.articles[url];
+
+    expect(article.url).toEqual(url);
+  });
+
+  it("Doit ajouter des informations à l'article", () => {
+    const store = createStore();
+
+    const url = "http://echojs.com/mon-article";
     const title = "Je suis une poule";
     const text = "<p>Hello ma poule !</p>";
 
+    store.dispatch(actions.articles.storeArticle(url));
+
     store.dispatch(
-      actions.articles.storeArticle({
-        url,
+      actions.articles.updateArticle(url, {
         title,
         text
       })
@@ -27,7 +42,37 @@ describe("Suite de tests des articles", () => {
     expect(article.text).toEqual(text);
   });
 
-  describe.skip("Suite de tests asynchrones", () => {
+  it("Doit sélectionner/déselectionner un article", () => {
+    const store = createStore();
+
+    const url = "http://echojs.com/mon-article";
+
+    store.dispatch(actions.articles.storeArticle(url));
+    store.dispatch(actions.articles.selectArticle(url));
+
+    expect(store.getState().articles.selected).toEqual(url);
+
+    store.dispatch(actions.articles.unselectArticle());
+
+    expect(store.getState().articles.selected).toEqual(false);
+  });
+
+  it("Doit modifier fetching d'un article", () => {
+    const store = createStore();
+    const getFetching = url => store.getState().articles[url].fetching;
+    const url = "http://echojs.com/mon-article";
+
+    store.dispatch(actions.articles.storeArticle(url));
+    store.dispatch(actions.articles.fetching(url));
+
+    expect(getFetching(url)).toEqual(true);
+
+    store.dispatch(actions.articles.fetchEnd(url));
+
+    expect(getFetching(url)).toEqual(false);
+  });
+
+  describe("Suite de tests asynchrones", () => {
     afterEach(() => {
       fetchMock.restore();
     });
@@ -59,7 +104,6 @@ describe("Suite de tests des articles", () => {
         });
 
       const state = store.getState();
-
       const article = state.articles[url];
 
       expect(article.fetching).toEqual(true);
