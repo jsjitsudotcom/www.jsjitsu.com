@@ -105,7 +105,7 @@
       "!src/registerServiceWorker.js"
     ],
     "setupFiles": ["<rootDir>/config/polyfills.js"],
-    "testMatch": ["<rootDir>/src/**/__tests__/**/*.{js,jsx,mjs}"],
+    "testMatch": ["<rootDir>/src/**/__tests__/*.{js,jsx,mjs}"],
     "testEnvironment": "node",
     "testURL": "http://localhost",
     "transform": {

@@ -16,13 +16,13 @@ export default {
    * @param {*} source - Le nom de la source
    */
   getFeeds(source) {
-    return this.fetch(`/feeds/${source}`);
+    return this.fetch(`feeds/${source}`);
   },
   /**
    * Permet de récupérer un article
    * @param {*} url - L'url de l'article
    */
   getArticle(url) {
-    return this.fetch(`/articles/?url=${url}`);
+    return this.fetch(`articles/?url=${url}`);
   }
 };

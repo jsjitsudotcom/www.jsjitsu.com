@@ -1,3 +1,5 @@
+jest.mock("./../../../utils/api", () => require("./__mocks__/Home.api"));
+
 import React from "react";
 import { expect } from "chai";
 import { Provider } from "react-redux";
@@ -201,11 +203,12 @@ describe("<Home />", () => {
     };
 
     beforeEach(async () => {
-      fetchMock.get("*", mockFeeds);
+      // fetchMock.get(/feeds/, mockFeeds);
+      // fetchMock.get(/articles/, { url: "nope", title: "Hello", content: "Hi !" });
     });
 
     afterEach(() => {
-      fetchMock.restore();
+      // fetchMock.restore();
     });
 
     test("Le composant Home doit être rendu avec les bonnes props issues du container", () => {

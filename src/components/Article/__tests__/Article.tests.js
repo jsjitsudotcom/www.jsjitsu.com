@@ -11,7 +11,7 @@ describe("<Article />", () => {
 
   describe("Suite de tests sur les propTypes", () => {
     test("Vérification que toutes les props soient bien dans les propTypes", () => {
-      const props = ["text", "title"];
+      const props = ["content", "url", "title", "onBack"];
       const propTypes = Object.keys(Article.propTypes);
 
       expect(props).to.deep.eq(propTypes);
@@ -27,19 +27,19 @@ describe("<Article />", () => {
       expect(wrapper.find(".title").text()).to.eq(title);
     });
 
-    test("Le texte doit bien s'afficher en html", () => {
-      const text = "<span>Je suis un texte</span>";
-      const wrapper = mount(<Article text={text} />);
+    test("Le contenu doit bien s'afficher en html", () => {
+      const content = "<span>Je suis un contente</span>";
+      const wrapper = mount(<Article content={content} />);
 
       expect(wrapper.find(".body").html()).to.eq(
-        `<div class="body">${text}</div>`
+        `<div class="body">${content}</div>`
       );
     });
   });
 
   describe("Suite de tests sur le pure rendering", () => {
     it("Le composant doit être un pure composant", () => {
-      let wrapper = mount(<Article title="title" text="link" />);
+      let wrapper = mount(<Article title="title" content="link" />);
 
       let spy = sinon.spy(wrapper.instance(), "render");
 

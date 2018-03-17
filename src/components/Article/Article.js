@@ -3,6 +3,13 @@ import Style from "./Article.scss";
 import PropTypes from "prop-types";
 import classNames from "classnames";
 import arrow from "./../../assets/material-icons/arrow-left.svg";
+import Amplitude from "./../../utils/amplitude";
+
+const onClick = e => {
+  Amplitude.logEvent("ARTICLE_SHOW_IN_WEB", {
+    url: e.target.href
+  });
+};
 
 export default class Article extends PureComponent {
   state = {
@@ -65,8 +72,16 @@ export default class Article extends PureComponent {
     return (
       <div className={Style.container} ref={ref => (this.container = ref)}>
         <div className={Style.header}>
+          <a
+            className={Style.viewInWeb}
+            href={this.props.url}
+            target="blank"
+            onClick={onClick}
+          >
+            Voir sur le web
+          </a>
           <div className={headerTopStyle}>
-            <div className={Style.back}>
+            <div className={Style.back} onClick={this.props.onBack}>
               <img src={arrow} alt="back" />
             </div>
             <div className={headerTopTitleStyle}>
@@ -80,7 +95,7 @@ export default class Article extends PureComponent {
 
         <div
           className={Style.body}
-          dangerouslySetInnerHTML={{ __html: this.props.text }}
+          dangerouslySetInnerHTML={{ __html: this.props.content }}
         />
       </div>
     );
@@ -88,8 +103,13 @@ export default class Article extends PureComponent {
 }
 
 Article.propTypes = {
-  text: PropTypes.string,
-  title: PropTypes.string
+  content: PropTypes.string,
+  url: PropTypes.string,
+  title: PropTypes.string,
+  onBack: PropTypes.func
 };
 
-Article.defaultProps = {};
+Article.defaultProps = {
+  onBack: /* istanbul ignore next */ () =>
+    console.warn("defaultProps: Article.onBack()")
+};

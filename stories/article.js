@@ -6,6 +6,10 @@ import { text } from "./__data__/article.json";
 
 export default (storiesOf, addons) => {
   storiesOf("Article", module).add("L'article en mode normal", () => (
-    <Article title="Transform your codebase using codemods" text={text} />
+    <Article
+      url="https://github.com"
+      title="Transform your codebase using codemods"
+      content={text}
+    />
   ));
 };

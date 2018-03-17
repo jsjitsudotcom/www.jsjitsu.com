@@ -27,7 +27,12 @@ export const updateArticle = (url, info) => ({
  */
 export const selectArticle = url => ({
   type: types.selectArticle,
-  url
+  url,
+  meta: {
+    amplitude: {
+      url
+    }
+  }
 });
 
 /**
@@ -64,8 +69,12 @@ export const fetchAndStoreArticle = url => (dispatcher, getState) => {
   dispatcher(storeArticle(url));
   dispatcher(fetching(url));
 
-  return Api.getArticle(url).then(({ title, text }) => {
-    dispatcher(updateArticle(url, { title, text }));
-    return dispatcher(fetchEnd(url));
-  });
+  return Api.getArticle(url)
+    .then(({ title, content }) => {
+      dispatcher(updateArticle(url, { title, content }));
+      return dispatcher(fetchEnd(url));
+    })
+    .catch(e => {
+      console.log(e);
+    });
 };

@@ -1,5 +1,5 @@
 import * as constants from "./../constants/articles";
-import { set, view, lensPath, concat, uniqBy, prop } from "ramda";
+import { set, lensPath } from "ramda";
 
 const initialState = {
   selected: false
@@ -8,7 +8,7 @@ const initialState = {
 const getInitialStateArticle = url => ({
   url,
   title: null,
-  text: null,
+  content: null,
   fetching: false
 });
 

@@ -22,14 +22,14 @@ describe("Suite de tests des articles", () => {
 
     const url = "http://echojs.com/mon-article";
     const title = "Je suis une poule";
-    const text = "<p>Hello ma poule !</p>";
+    const content = "<p>Hello ma poule !</p>";
 
     store.dispatch(actions.articles.storeArticle(url));
 
     store.dispatch(
       actions.articles.updateArticle(url, {
         title,
-        text
+        content
       })
     );
 
@@ -39,7 +39,7 @@ describe("Suite de tests des articles", () => {
 
     expect(article.url).toEqual(url);
     expect(article.title).toEqual(title);
-    expect(article.text).toEqual(text);
+    expect(article.content).toEqual(content);
   });
 
   it("Doit sélectionner/déselectionner un article", () => {
@@ -82,9 +82,9 @@ describe("Suite de tests des articles", () => {
 
       const url = "http://echojs.com/mon-article";
       const title = "Je suis une poule";
-      const text = "<p>Hello ma poule !</p>";
+      const content = "<p>Hello ma poule !</p>";
 
-      fetchMock.get("*", { title, url, text });
+      fetchMock.get("*", { title, url, content });
 
       store
         .dispatch(
@@ -97,7 +97,7 @@ describe("Suite de tests des articles", () => {
 
           expect(article.url).toEqual(url);
           expect(article.title).toEqual(title);
-          expect(article.text).toEqual(text);
+          expect(article.content).toEqual(content);
           expect(article.fetching).toEqual(false);
 
           return done();
