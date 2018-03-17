@@ -13,26 +13,6 @@ const getInitialStateSource = (name, url, options) => ({
   ...options
 });
 
-/* A tester
-const test = {
-  sources: ["Echojs", "Medium"],
-  selected: "Echojs",
-  entities: {
-    sources: {
-      "Echojs": {
-        feeds: ["245", "356"]
-      }
-    },
-    feeds: {
-      "245": {
-        id: "245",
-        source: "Echojs"
-      }
-    }
-  }
-}
-*/
-
 const getLensFeeds = name => lensPath(["sources", name, "feeds"]);
 const getLensFeching = name => lensPath(["sources", name, "fetching"]);
 
