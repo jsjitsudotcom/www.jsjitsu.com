@@ -1,3 +1,14 @@
+<a name="1.5.0"></a>
+# [1.5.0](https://github.com/jsjitsudotcom/www.jsjitsu.com/compare/v1.4.4...v1.5.0) (2018-03-17)
+
+
+### Features
+
+* **article:** en cours de création du composant article ([eb8a5be](https://github.com/jsjitsudotcom/www.jsjitsu.com/commit/eb8a5be))
+* **articles:** Ajout de la feature lire l'article en mode hors ligne ([6af4a02](https://github.com/jsjitsudotcom/www.jsjitsu.com/commit/6af4a02))
+
+
+
 <a name="1.4.4"></a>
 ## [1.4.4](https://github.com/jsjitsudotcom/www.jsjitsu.com/compare/v1.4.3...v1.4.4) (2018-02-03)
 
