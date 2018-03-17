@@ -6,6 +6,7 @@ import SubHeader from "./../../components/SubHeader/SubHeader";
 import Feed from "./../../components/Feed/Feed";
 import Menu from "./../../components/Menu/Menu";
 import ModalSubmitFeed from "./../../components/ModalSubmitFeed/ModalSubmitFeed";
+import Article from "./../../components/Article/Article";
 import Connect from "./../../containers/Home";
 import Amplitude from "./../../utils/amplitude";
 
@@ -45,6 +46,14 @@ class Home extends PureComponent {
   render() {
     return (
       <div>
+        {this.props.selectedArticle && (
+          <Article
+            url={this.props.selectedArticle.url}
+            content={this.props.selectedArticle.content}
+            title={this.props.selectedArticle.title}
+            onBack={this.props.onClickBackArticle}
+          />
+        )}
         <Menu open={this.state.menu} onClose={this.closeMenu.bind(this)} />
         <ModalSubmitFeed
           open={this.state.modalSubmitFeed}
@@ -65,7 +74,13 @@ class Home extends PureComponent {
           {this.props.feeds
             .map((feed, index) => (
               <div className={Style.feed} key={index}>
-                <Feed index={index + 1} link={feed.link} title={feed.title} />
+                <Feed
+                  index={index + 1}
+                  link={feed.link}
+                  title={feed.title}
+                  onClick={() => this.props.onClickFeed(feed.link)}
+                  onMount={() => this.props.onFeedMount(feed.link)}
+                />
               </div>
             ))
             .concat(this.loading())}

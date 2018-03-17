@@ -5,6 +5,8 @@ import sinon from "sinon";
 import Feed from "./../Feed";
 
 describe("<Feed />", () => {
+  console.warn = () => false;
+
   it("Le componsant doit être rendu", () => {
     shallow(<Feed />);
   });
@@ -19,7 +21,15 @@ describe("<Feed />", () => {
     });
 
     test("Vérification que toutes les props soient bien dans les propTypes", () => {
-      const props = ["title", "index", "link", "loading", "loadingDelay"];
+      const props = [
+        "title",
+        "index",
+        "link",
+        "loading",
+        "loadingDelay",
+        "onMount",
+        "onClick"
+      ];
       const propTypes = Object.keys(Feed.propTypes);
 
       expect(props).to.deep.eq(propTypes);
@@ -39,12 +49,7 @@ describe("<Feed />", () => {
 
       expect(wrapper.find(".index").text()).to.eq(index);
     });
-    test("Le lien doit bien s'afficher avec le lien dans son href", () => {
-      const link = "Je suis un titre";
-      const wrapper = shallow(<Feed link={link} />);
 
-      expect(wrapper.find(".container").prop("href")).to.eq(link);
-    });
     test("Le loading doit bien s'afficher lorsque la props est de loading est active", () => {
       const loadingDelay = 200;
       const wrapper = shallow(<Feed loading loadingDelay={loadingDelay} />);
@@ -78,6 +83,18 @@ describe("<Feed />", () => {
         0,
         "Mettre à jour une props sans changer la valeur ne doit pas faire de nouveau rendu"
       );
+    });
+  });
+
+  describe("Suite test des methodes", () => {
+    test("La propriété onClose doit être appelée lorsqu'on clique sur l'overlay", () => {
+      const onClick = sinon.spy();
+
+      const wrapper = shallow(<Feed onClick={onClick} />);
+
+      wrapper.find(".container").simulate("click");
+
+      expect(onClick.calledOnce).to.equal(true);
     });
   });
 });

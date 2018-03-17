@@ -1,34 +1,24 @@
 import React, { PureComponent } from "react";
 import Style from "./Feed.scss";
 import PropTypes from "prop-types";
-import Amplitude from "../../utils/amplitude";
 
 const Loading = ({ delay }) => (
   <div className={Style.loading} style={{ animationDelay: delay + "ms" }} />
 );
 
-const logEvent = ({ link, title }) => () =>
-  Amplitude.logEvent("FEED_CLICK", {
-    link,
-    title
-  });
-
 export default class Feed extends PureComponent {
+  componentDidMount() {
+    this.props.onMount();
+  }
+
   render() {
     return this.props.loading ? (
       <Loading delay={this.props.loadingDelay} />
     ) : (
-      <a
-        href={this.props.link}
-        className={Style.container}
-        onClick={logEvent({
-          title: this.props.title,
-          link: this.props.link
-        })}
-      >
+      <div onClick={this.props.onClick} className={Style.container}>
         <div className={Style.index}>{this.props.index}</div>
         <div className={Style.title}>{this.props.title}</div>
-      </a>
+      </div>
     );
   }
 }
@@ -38,7 +28,9 @@ Feed.propTypes = {
   index: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
   link: PropTypes.string,
   loading: PropTypes.bool,
-  loadingDelay: PropTypes.number
+  loadingDelay: PropTypes.number,
+  onMount: PropTypes.func,
+  onClick: PropTypes.func
 };
 
 Feed.defaultProps = {
@@ -46,5 +38,9 @@ Feed.defaultProps = {
   index: "1",
   link: "#",
   loading: false,
-  loadingDelay: 0
+  loadingDelay: 0,
+  onMount: /* istanbul ignore next */ () =>
+    console.warn("defaultProps: Feed.onMount()"),
+  onClick: /* istanbul ignore next */ () =>
+    console.warn("defaultProps: Feed.onClick()")
 };
