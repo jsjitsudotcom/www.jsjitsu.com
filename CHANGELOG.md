@@ -1,3 +1,13 @@
+<a name="1.5.1"></a>
+## [1.5.1](https://github.com/jsjitsudotcom/www.jsjitsu.com/compare/v1.5.0...v1.5.1) (2018-03-18)
+
+
+### Bug Fixes
+
+* **manifest:** ajout d'icones arrondi comme samsung ([f84c0a7](https://github.com/jsjitsudotcom/www.jsjitsu.com/commit/f84c0a7))
+
+
+
 <a name="1.5.0"></a>
 # [1.5.0](https://github.com/jsjitsudotcom/www.jsjitsu.com/compare/v1.4.4...v1.5.0) (2018-03-17)
 
