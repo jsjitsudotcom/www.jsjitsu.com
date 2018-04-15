@@ -4,7 +4,7 @@ import Ripple from "./../Ripple/Ripple";
 
 const Serie = ({ illustration, title }) => (
   <div className={Style.container}>
-    <Ripple color="rgba(255,255,255, 0.5)" during={1000}>
+    <Ripple>
       <div
         className={Style.illustration}
         style={{ backgroundImage: `url(${illustration})` }}

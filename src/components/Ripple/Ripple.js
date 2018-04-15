@@ -98,8 +98,8 @@ Ripples.propTypes = {
 };
 
 Ripples.defaultProps = {
-  during: 600,
-  color: "rgba(0, 0, 0, .3)",
+  color: "rgba(255,255,255, 0.5)",
+  during: 1000,
   onClick: /* istanbul ignore next */ () =>
     console.warn("defaultProps: Ripples.onClick()")
 };
