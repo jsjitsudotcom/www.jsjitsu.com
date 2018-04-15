@@ -1,0 +1,22 @@
+:local(.container) {
+}
+
+:local(.title) {
+  color: white;
+  font-weight: 500;
+  font-size: 17px;
+  letter-spacing: -0.2px;
+}
+
+:local(.description) {
+  color: white;
+  font-size: 15px;
+  letter-spacing: -0.2px;
+}
+
+:local(.items) {
+  display: flex;
+  margin-top: 15px;
+  overflow: auto;
+  padding-bottom: 10px;
+}
