@@ -1,0 +1,23 @@
+:local(.container) {
+  padding: 0px 15px;
+  height: 60px;
+  background-color: #19191a;
+  user-select: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  border-top: 1px solid rgba(white, 0.05);
+  border-bottom: 1px solid rgba(white, 0.05);
+}
+
+:local(.title) {
+  color: #fafafa;
+  font-size: 16px;
+  letter-spacing: -0.2px;
+}
+
+:local(.toggle) {
+  margin-left: auto;
+  display: flex;
+  align-items: center;
+}
