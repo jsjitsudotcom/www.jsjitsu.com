@@ -4,9 +4,17 @@ import Offline from "./components/Offline/Offline";
 import Episode from "./components/Episode/Episode";
 import Video from "./components/Video/Video";
 
-const Player = ({ title, description, published, views, episodes }) => (
+const Player = ({
+  title,
+  description,
+  published,
+  views,
+  episodes,
+  cover,
+  source
+}) => (
   <div>
-    <Video />
+    <Video hasNext={true} hasPrevious={false} cover={cover} source={source} />
     <Info
       title={title}
       description={description}

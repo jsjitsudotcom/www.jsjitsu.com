@@ -5,12 +5,69 @@
   z-index: 1;
 }
 
+:local(.video) {
+  width: 100%;
+  height: 100%;
+  background-size: cover;
+  background-position: 50%;
+  position: relative;
+  background-color: black;
+
+  &:before {
+    content: "";
+
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+
+    background-image: linear-gradient(
+      rgba(black, 0.5),
+      rgba(black, 0.15),
+      rgba(black, 0.68)
+    );
+  }
+}
+
+:local(.controls) {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  display: flex;
+  align-items: center;
+  height: 100%;
+  justify-content: center;
+}
+
+:local(.next) {
+  margin-left: 40px;
+  cursor: pointer;
+}
+
+:local(.previous) {
+  margin-right: 40px;
+  cursor: pointer;
+}
+
+:local(.inactive) {
+  cursor: not-allowed;
+  opacity: 0.45;
+}
+
+:local(.play) {
+  cursor: pointer;
+}
+
 :local(.bottom) {
   position: absolute;
   bottom: 0;
   left: 0;
   right: 0;
   width: 100%;
+  z-index: 1;
 }
 
 :local(.infoProgress) {

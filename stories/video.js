@@ -2,6 +2,8 @@ import React from "react";
 
 import Body from "./utils/Body";
 import Player from "./../src/components/Player/Player";
+import Illustration from "./__data__/npm.png";
+import video from "./__data__/video.mp4";
 
 export default (storiesOf, addons) => {
   storiesOf("Video", module)
@@ -16,6 +18,8 @@ export default (storiesOf, addons) => {
             published={new Date()}
             views={234}
             description="Avec Jsjitsu, vous pouvez n’importe où et à n’importe quel moment, apprendre de nouvelles choses sur le Javascript. L’application et les vidéos sont disponible même sans connexion internet."
+            cover={Illustration}
+            source={video}
             episodes={[
               { title: "Installation de Node", duration: 125 },
               { title: "Installation de Npm", duration: 120 },
