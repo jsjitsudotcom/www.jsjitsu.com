@@ -3,6 +3,7 @@
   height: 230px;
   position: relative;
   z-index: 1;
+  user-select: none;
 }
 
 :local(.video) {
