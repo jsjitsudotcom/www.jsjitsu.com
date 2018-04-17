@@ -21,7 +21,7 @@ const styles = {
 
 const Offline = ({ isOffline }) => (
   <div className={Style.container}>
-    <div className={Style.title}>Mode hors ligne</div>
+    <div className={Style.title}>Disponible hors ligne</div>
     <div className={Style.toggle}>
       <Toggle
         thumbStyle={styles.thumbOff}

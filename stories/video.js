@@ -16,6 +16,11 @@ export default (storiesOf, addons) => {
             published={new Date()}
             views={234}
             description="Avec Jsjitsu, vous pouvez n’importe où et à n’importe quel moment, apprendre de nouvelles choses sur le Javascript. L’application et les vidéos sont disponible même sans connexion internet."
+            episodes={[
+              { title: "Installation de Node", duration: 125 },
+              { title: "Installation de Npm", duration: 120 },
+              { title: "Explications du fichier package.json", duration: 56 }
+            ]}
           />
         </div>
       </Body>
