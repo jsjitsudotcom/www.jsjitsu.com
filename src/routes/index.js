@@ -1,28 +1,12 @@
 import React from "react";
-import Home from "./Home/Home";
+import Discover from "./../components/Discover/Discover";
 import { Provider } from "react-redux";
 import createStore from "./../stores";
 
-const feeds = {
-  feeds: {
-    selected: "Echojs",
-    sources: {
-      Echojs: {
-        name: "Echojs",
-        feeds: []
-      },
-      Medium: {
-        name: "Medium",
-        feeds: []
-      }
-    }
-  }
-};
-
-const store = createStore(feeds);
+const store = createStore();
 
 export default (
   <Provider store={store}>
-    <Home />
+    <Discover />
   </Provider>
 );

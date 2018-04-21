@@ -36,6 +36,17 @@ class Discover extends PureComponent {
           </Carousel>
 
           <Carousel
+            title="Les épisodes enregistrés"
+            description="Tous les épisodes disponible en mode hors ligne"
+            padding={15}
+            marginTop={10}
+          >
+            {this.props.releases.map(({ illustration, title, id }) => (
+              <Serie key={id} illustration={illustration} title={title} />
+            ))}
+          </Carousel>
+
+          <Carousel
             title="Reprendre"
             description="Revoir ou reprendre là où vous vous êtes arrêté"
             padding={15}
