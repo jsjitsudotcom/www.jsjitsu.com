@@ -1,69 +1,25 @@
 import React, { PureComponent } from "react";
 import Style from "./Menu.scss";
 import PropTypes from "prop-types";
-import Logo from "./../../assets/logo/header.svg";
-import Amplitude from "./../../utils/amplitude";
+import Header from "./components/Header/Header";
+import Tabs from "./components/Tabs/Tabs";
 
 export default class Menu extends PureComponent {
-  onClick(e) {
-    Amplitude.logEvent("MENU_LINK_CLICK", {
-      url: e.target.href
-    });
+  state = { open: false };
+
+  toggle() {
+    this.setState(({ open }) => ({ open: !open }));
   }
 
   render() {
-    const styleContainer = this.props.open
-      ? Style.containerOpen
-      : Style.container;
     return (
-      <div className={styleContainer}>
-        <div className={Style.overlay} onClick={this.props.onClose} />
-        <div className={Style.menu}>
-          <div className={Style.wrapper}>
-            <div className={Style.menuHeader}>
-              <img src={Logo} alt="menu" />
-            </div>
-            <div className={Style.tabs}>
-              <a
-                href="https://medium.com/jsjitsu/foire-aux-questions-ccd7b515429d"
-                className={Style.tab}
-                onClick={() => this.onClick()}
-              >
-                C'est quoi jsjitsu ?
-              </a>
-              <a
-                href="https://medium.com/jsjitsu/politique-de-confidentialit%C3%A9-a91107de4b69"
-                className={Style.tab}
-                onClick={() => this.onClick()}
-              >
-                Confidentialité
-              </a>
-              <a
-                href="https://www.facebook.com/jsjitsu/"
-                className={Style.tab}
-                onClick={() => this.onClick()}
-              >
-                Page Facebook
-              </a>
-              <a
-                href="https://twitter.com/jsjitsudotcom"
-                className={Style.tab}
-                onClick={() => this.onClick()}
-              >
-                Page Twitter
-              </a>
-              <a
-                href="https://medium.com/jsjitsu"
-                className={Style.tab}
-                onClick={() => this.onClick()}
-              >
-                Page Medium
-              </a>
-            </div>
-
-            <div className={Style.footer}>{process.env.VERSION}</div>
-          </div>
-        </div>
+      <div>
+        <Header
+          title={this.props.title}
+          onMenu={() => this.toggle()}
+          isMenuOpen={this.state.open}
+        />
+        <Tabs open={this.state.open} onClose={() => this.toggle()} />
       </div>
     );
   }

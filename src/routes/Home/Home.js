@@ -1,8 +1,6 @@
 import React, { PureComponent } from "react";
 import Style from "./Home.scss";
 import PropTypes from "prop-types";
-import Header from "./../../components/Header/Header";
-import SubHeader from "./../../components/SubHeader/SubHeader";
 import Feed from "./../../components/Feed/Feed";
 import Menu from "./../../components/Menu/Menu";
 import ModalSubmitFeed from "./../../components/ModalSubmitFeed/ModalSubmitFeed";
@@ -59,7 +57,7 @@ class Home extends PureComponent {
           open={this.state.modalSubmitFeed}
           onClose={() => this.setState({ modalSubmitFeed: false })}
         />
-        <Header
+        {/* <Header
           fixed
           onClickMenu={this.openMenu.bind(this)}
           onClickSubmitFeed={this.openSubmitFeed.bind(this)}
@@ -69,7 +67,7 @@ class Home extends PureComponent {
           tabs={this.props.sourcesArray}
           selected={this.props.selected}
           onSelect={this.props.selectSource}
-        />
+        /> */}
         <div className={Style.feeds}>
           {this.props.feeds
             .map((feed, index) => (

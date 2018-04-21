@@ -1,5 +1,5 @@
 import React from "react";
-import { shallow } from "enzyme";
+import { shallow, mount } from "enzyme";
 import { expect } from "chai";
 import sinon from "sinon";
 import Header from "./../Header";
@@ -51,18 +51,14 @@ describe("<Header />", () => {
       const onClickMenu = sinon.spy();
       const onClickSubmitFeed = sinon.spy();
 
-      const wrapper = shallow(
-        <Header
-          onClickMenu={onClickMenu}
-          onClickSubmitFeed={onClickSubmitFeed}
-        />
-      );
+      const wrapper = mount(<Header onMenu={onClickMenu} />);
 
-      wrapper.find(".menu").simulate("click");
-      wrapper.find(".add").simulate("click");
+      wrapper
+        .find(".menu")
+        .first()
+        .simulate("click");
 
       expect(onClickMenu.calledOnce).to.equal(true);
-      expect(onClickSubmitFeed.calledOnce).to.equal(true);
     });
   });
 });

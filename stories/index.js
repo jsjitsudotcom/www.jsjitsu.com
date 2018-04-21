@@ -12,6 +12,7 @@ import serie from "./serie";
 import onboarding from "./onboarding";
 import playBack from "./play-back";
 import video from "./video";
+import menu from "./menu";
 
 moment.locale("fr");
 
@@ -21,3 +22,4 @@ playBack(storiesOf, { linkTo, action, backgrounds });
 onboarding(storiesOf, { linkTo, action, backgrounds });
 serie(storiesOf, { linkTo, action, backgrounds });
 video(storiesOf, { linkTo, action, backgrounds });
+menu(storiesOf, { linkTo, action, backgrounds });

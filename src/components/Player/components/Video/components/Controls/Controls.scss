@@ -1,0 +1,40 @@
+:local(.container) {
+  display: flex;
+  align-items: center;
+  height: 100%;
+  justify-content: center;
+  transition: opacity 0.3s;
+  opacity: 1;
+
+  &.hide {
+    opacity: 0;
+
+    &:before {
+      content: "";
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      left: 0;
+      right: 0;
+    }
+  }
+}
+
+:local(.next) {
+  margin-left: 40px;
+  cursor: pointer;
+}
+
+:local(.previous) {
+  margin-right: 40px;
+  cursor: pointer;
+}
+
+:local(.inactive) {
+  cursor: not-allowed;
+  opacity: 0.45;
+}
+
+:local(.play) {
+  cursor: pointer;
+}

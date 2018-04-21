@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="56px" height="56px" viewBox="0 0 56 56" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 49.3 (51167) - http://www.bohemiancoding.com/sketch -->
+    <title>play-arrow</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Page" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Videos-Copy" transform="translate(-152.000000, -95.000000)">
+            <g id="Body">
+                <g id="Video">
+                    <g id="Controls" transform="translate(72.000000, 95.000000)">
+                        <g id="Rectangle-458-+-Shape-3" transform="translate(80.000000, 0.000000)">
+                            <g id="play-arrow">
+                                <g id="ic_pause" transform="translate(5.000000, 17.000000)">
+                                    <g id="Icon-24px">
+                                        <polygon id="Shape" points="0 0 24 0 24 24 0 24"></polygon>
+                                    </g>
+                                </g>
+                                <path d="M28,56 C43.463973,56 56,43.463973 56,28 C56,12.536027 43.463973,0 28,0 C12.536027,0 0,12.536027 0,28 C0,43.463973 12.536027,56 28,56 Z M19,38 L25,38 L25,18 L19,18 L19,38 L19,38 Z M31,18 L31,38 L37,38 L37,18 L31,18 L31,18 Z" id="Combined-Shape" fill="#FFFFFF"></path>
+                            </g>
+                        </g>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

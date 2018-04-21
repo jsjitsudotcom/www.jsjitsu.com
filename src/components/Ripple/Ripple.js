@@ -24,57 +24,38 @@ class Ripples extends PureComponent {
     };
   }
 
-  componentWillUnmount() {
-    clearTimeout(this.timer);
-  }
-
   handleClick = ev => {
     if (ev.stopPropagation) {
       ev.stopPropagation();
     }
 
     const { onClick, during } = this.props;
-    const {
-      pageX,
-      pageY,
-      currentTarget: { offsetLeft, offsetTop, offsetWidth, offsetHeight }
-    } = ev;
+    const { currentTarget: { offsetWidth, offsetHeight } } = ev;
 
-    const left = pageX - offsetLeft;
-    const top = pageY - offsetTop;
     const size = Math.max(offsetWidth, offsetHeight);
 
-    this.setState({
-      rippleStyle: {
-        ...this.state.rippleStyle,
-        top,
-        left,
-        opacity: 1,
-        transform: "translate(-50%, -50%)",
-        transition: "initial"
-      }
+    this.ripple.style.top = `0`;
+    this.ripple.style.left = `0`;
+    this.ripple.style.right = `0`;
+    this.ripple.style.bottom = `0`;
+    this.ripple.style.margin = "auto";
+    this.ripple.style.opacity = 1;
+    this.ripple.style.transition = "initial";
+    this.ripple.style.transform = `scale(1)`;
+
+    setTimeout(() => {
+      this.ripple.style.opacity = 0;
+      this.ripple.style.transform = `scale(${size / 9})`;
+      this.ripple.style.transition = `all ${during}ms`;
     });
 
-    this.timer = setTimeout(() => {
-      this.setState({
-        rippleStyle: {
-          ...this.state.rippleStyle,
-          opacity: 0,
-          transform: `scale(${size / 9})`,
-          transition: `all ${during}ms`
-        }
-      });
-    });
-
-    if (typeof onClick === "function") {
-      onClick(ev);
-    }
+    if (typeof onClick === "function") onClick(ev);
   };
 
   render() {
     const { children, style, during, color, ...props } = this.props;
 
-    const { state, handleClick } = this;
+    const { handleClick } = this;
 
     const wrapStyle = {
       ...style,
@@ -84,7 +65,7 @@ class Ripples extends PureComponent {
     return (
       <div {...props} style={wrapStyle} onClick={handleClick}>
         {children}
-        <s style={state.rippleStyle} />
+        <div ref={ref => (this.ripple = ref)} style={this.state.rippleStyle} />
       </div>
     );
   }

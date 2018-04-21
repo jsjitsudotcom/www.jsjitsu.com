@@ -1,29 +1,11 @@
 import React, { PureComponent } from "react";
 import Style from "./Video.scss";
 import classNames from "classnames";
+import Progress from "./components/Progress/Progress";
+import Controls from "./components/Controls/Controls";
 
-import FullScreen from "material-ui/svg-icons/navigation/fullscreen";
-import Previous from "./../../../../assets/icons/video-previous.svg";
-import Next from "./../../../../assets/icons/video-next.svg";
-import Play from "./../../../../assets/icons/play.svg";
-
-const addInactive = style => isActive =>
-  classNames(style, { [Style.inactive]: !isActive });
-
-const isNextInactive = addInactive(Style.next);
-const isPreviousInactive = addInactive(Style.previous);
-
-const durationToText = duration => {
-  const minutes = Math.floor(duration / 60);
-  const secondes = Math.floor(duration % 60);
-
-  const hasMinutes =
-    minutes >= 10 ? `${minutes}:` : minutes > 0 ? `0${minutes}:` : "00:";
-  const hasSeconds =
-    secondes >= 10 ? `${secondes}` : secondes > 0 ? `0${secondes}` : "00";
-
-  return `${hasMinutes}${hasSeconds}`;
-};
+import ArrayLeft from "./../../../../assets/material-icons/arrow-left-white.svg";
+import Share from "./../../../../assets/material-icons/share.svg";
 
 class Video extends PureComponent {
   constructor(props) {
@@ -38,7 +20,8 @@ class Video extends PureComponent {
     duration: "00:00",
     current: "00:00",
     percentage: 0,
-    showControls: true
+    showControls: true,
+    isPlaying: false
   };
 
   componentDidMount() {
@@ -46,14 +29,16 @@ class Video extends PureComponent {
     this.hideControls();
   }
 
-  play() {
+  play(e) {
+    if (e) e.stopPropagation();
+
     this.video.play();
+    this.setState({ isPlaying: true });
 
     this.video.ontimeupdate = () => {
       this.setState({
-        current: durationToText(this.video.currentTime),
-        duration: durationToText(this.video.duration),
-        percentage: this.video.currentTime / this.video.duration * 100
+        current: this.video.currentTime,
+        duration: this.video.duration
       });
     };
 
@@ -63,6 +48,14 @@ class Video extends PureComponent {
   pause(e) {
     e.stopPropagation();
     this.video.pause();
+    this.setState({ isPlaying: false });
+
+    this.video.ontimeupdate = () => false;
+  }
+
+  changeCursor(time) {
+    this.video.currentTime = time;
+    this.setState({ current: time });
   }
 
   hideControls() {
@@ -78,12 +71,32 @@ class Video extends PureComponent {
     return this.showControls();
   }
 
+  enableFullscreen(e) {
+    // e.stopPropagation();
+    // var elem = document.getElementById("video");
+    // if (elem.requestFullscreen) {
+    //   elem.requestFullscreen();
+    // }
+  }
+
   render() {
     const { hasNext, hasPrevious, source, cover } = this.props;
 
     return (
-      <div className={Style.container}>
+      <div className={Style.container} ref={ref => (this.container = ref)}>
+        <div
+          className={classNames(Style.menu, { hide: !this.state.showControls })}
+          onClick={this.onVideoClick}
+        >
+          <div className={Style.back}>
+            <img src={ArrayLeft} alt="back" />
+          </div>
+          <div className={Style.share}>
+            <img src={Share} alt="back" />
+          </div>
+        </div>
         <video
+          id="video"
           onClick={this.onVideoClick}
           ref={ref => (this.video = ref)}
           className={Style.video}
@@ -92,42 +105,25 @@ class Video extends PureComponent {
           <source src={source} type="video/mp4" />
         </video>
 
-        {this.state.showControls && (
-          <div
-            className={Style.controls}
-            ref={ref => (this.controls = ref)}
-            onClick={this.onVideoClick}
-          >
-            <div className={isPreviousInactive(hasPrevious)}>
-              <img src={Previous} alt="previous" />
-            </div>
-
-            <div className={Style.play} onClick={this.pause}>
-              <img src={Play} alt="play" />
-            </div>
-
-            <div className={isNextInactive(hasNext)}>
-              <img src={Next} alt="next" />
-            </div>
-          </div>
-        )}
+        <div className={Style.controls} onClick={this.onVideoClick}>
+          <Controls
+            show={this.state.showControls}
+            hasPrevious={hasPrevious}
+            hasNext={hasNext}
+            onPlay={this.play}
+            onPause={this.pause}
+            isPlaying={this.state.isPlaying}
+          />
+        </div>
 
         <div className={Style.bottom}>
-          <div className={Style.infoProgress}>
-            <div className={Style.currentTime}>{this.state.current}</div>
-            <div className={Style.duration}>{this.state.duration}</div>
-            <div className={Style.expand}>
-              <FullScreen />
-            </div>
-          </div>
-
-          <div className={Style.progress}>
-            <div
-              className={Style.progressCurrent}
-              style={{ width: `${this.state.percentage}%` }}
-            />
-            <div className={Style.cursor} />
-          </div>
+          <Progress
+            current={this.state.current}
+            duration={this.state.duration}
+            showControls={this.state.showControls}
+            onChange={this.changeCursor.bind(this)}
+            onFullscreen={this.enableFullscreen.bind(this)}
+          />
         </div>
       </div>
     );
