@@ -15,15 +15,23 @@ const wrapWithPadding = (children = [], padding = 5) =>
     </div>
   ));
 
-const Carousel = ({ description, title, children, padding = 5 }) => (
-  <div className={Style.container}>
+const Carousel = ({
+  description,
+  title,
+  children,
+  padding = 5,
+  marginTop = 0
+}) => (
+  <div className={Style.container} style={{ marginTop }}>
     <div className={Style.title} style={{ paddingLeft: padding }}>
       {title}
     </div>
     <div className={Style.description} style={{ paddingLeft: padding }}>
       {description}
     </div>
-    <div className={Style.items}>{wrapWithPadding(children)}</div>
+    <div className={Style.items} style={{ paddingLeft: padding - 5 }}>
+      {wrapWithPadding(children)}
+    </div>
   </div>
 );
 
