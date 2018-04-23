@@ -1,0 +1,164 @@
+{
+  "sys": { "type": "Array" },
+  "total": 1,
+  "skip": 0,
+  "limit": 100,
+  "items": [
+    {
+      "sys": {
+        "space": {
+          "sys": { "type": "Link", "linkType": "Space", "id": "xc43wxyi19mo" }
+        },
+        "id": "BelqAMje8KMmwMCioWsGC",
+        "type": "Entry",
+        "createdAt": "2018-04-21T11:11:55.006Z",
+        "updatedAt": "2018-04-21T12:38:14.814Z",
+        "environment": {
+          "sys": { "id": "master", "type": "Link", "linkType": "Environment" }
+        },
+        "revision": 3,
+        "contentType": {
+          "sys": { "type": "Link", "linkType": "ContentType", "id": "serie" }
+        },
+        "locale": "en-US"
+      },
+      "fields": {
+        "name": "Initiation à Nodejs",
+        "description":
+          "Dans cette série, on va voir comment installer Node et comment bien utiliser son gestionnaire de paquet, npm.",
+        "categories": [
+          {
+            "sys": {
+              "space": {
+                "sys": {
+                  "type": "Link",
+                  "linkType": "Space",
+                  "id": "xc43wxyi19mo"
+                }
+              },
+              "id": "1UE4AUSgzqaEkiM0wcWqSy",
+              "type": "Entry",
+              "createdAt": "2018-04-21T11:10:01.516Z",
+              "updatedAt": "2018-04-21T11:10:01.516Z",
+              "environment": {
+                "sys": {
+                  "id": "master",
+                  "type": "Link",
+                  "linkType": "Environment"
+                }
+              },
+              "revision": 1,
+              "contentType": {
+                "sys": {
+                  "type": "Link",
+                  "linkType": "ContentType",
+                  "id": "category"
+                }
+              },
+              "locale": "en-US"
+            },
+            "fields": { "name": "Javascript" }
+          }
+        ],
+        "illustration": {
+          "sys": {
+            "space": {
+              "sys": {
+                "type": "Link",
+                "linkType": "Space",
+                "id": "xc43wxyi19mo"
+              }
+            },
+            "id": "4Do387nmcwIYgiC6kyK6aa",
+            "type": "Asset",
+            "createdAt": "2018-04-21T11:15:56.713Z",
+            "updatedAt": "2018-04-21T11:15:56.713Z",
+            "environment": {
+              "sys": {
+                "id": "master",
+                "type": "Link",
+                "linkType": "Environment"
+              }
+            },
+            "revision": 1,
+            "locale": "en-US"
+          },
+          "fields": {
+            "title": "Initiation à Nodejs",
+            "description": "L'image d'illustration de la série.",
+            "file": {
+              "url":
+                "//images.ctfassets.net/xc43wxyi19mo/4Do387nmcwIYgiC6kyK6aa/2dfb335b5d894453f09eab65574e59e1/node.png",
+              "details": {
+                "size": 58033,
+                "image": { "width": 1200, "height": 630 }
+              },
+              "fileName": "node.png",
+              "contentType": "image/png"
+            }
+          }
+        }
+      }
+    }
+  ],
+  "includes": {
+    "Entry": [
+      {
+        "sys": {
+          "space": {
+            "sys": { "type": "Link", "linkType": "Space", "id": "xc43wxyi19mo" }
+          },
+          "id": "1UE4AUSgzqaEkiM0wcWqSy",
+          "type": "Entry",
+          "createdAt": "2018-04-21T11:10:01.516Z",
+          "updatedAt": "2018-04-21T11:10:01.516Z",
+          "environment": {
+            "sys": { "id": "master", "type": "Link", "linkType": "Environment" }
+          },
+          "revision": 1,
+          "contentType": {
+            "sys": {
+              "type": "Link",
+              "linkType": "ContentType",
+              "id": "category"
+            }
+          },
+          "locale": "en-US"
+        },
+        "fields": { "name": "Javascript" }
+      }
+    ],
+    "Asset": [
+      {
+        "sys": {
+          "space": {
+            "sys": { "type": "Link", "linkType": "Space", "id": "xc43wxyi19mo" }
+          },
+          "id": "4Do387nmcwIYgiC6kyK6aa",
+          "type": "Asset",
+          "createdAt": "2018-04-21T11:15:56.713Z",
+          "updatedAt": "2018-04-21T11:15:56.713Z",
+          "environment": {
+            "sys": { "id": "master", "type": "Link", "linkType": "Environment" }
+          },
+          "revision": 1,
+          "locale": "en-US"
+        },
+        "fields": {
+          "title": "Initiation à Nodejs",
+          "description": "L'image d'illustration de la série.",
+          "file": {
+            "url":
+              "//images.ctfassets.net/xc43wxyi19mo/4Do387nmcwIYgiC6kyK6aa/2dfb335b5d894453f09eab65574e59e1/node.png",
+            "details": {
+              "size": 58033,
+              "image": { "width": 1200, "height": 630 }
+            },
+            "fileName": "node.png",
+            "contentType": "image/png"
+          }
+        }
+      }
+    ]
+  }
+}
