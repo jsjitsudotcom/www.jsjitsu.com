@@ -11,6 +11,15 @@ export const storeSeries = series => ({
 });
 
 /**
+ * Permet de stocker les épisodes
+ * @param {Array<Episode>} episodes - Les épisodes
+ */
+export const storeEpisodes = episodes => ({
+  type: types.storeEpisodes,
+  episodes
+});
+
+/**
  * Permet de dire qu'un article charge
  */
 export const fetching = () => ({
@@ -34,6 +43,19 @@ export const fetchSeries = () => (dispatcher, getState) => {
 
   return Contentfull.getSeries().then(series => {
     dispatcher(storeSeries(series));
+    return dispatcher(fetchEnd());
+  });
+};
+
+/**
+ * Permet d'aller chercher les épisodes d'une série
+ * @param {string} id - L'id de la série des épisodes
+ */
+export const fetchEpisodes = id => (dispatcher, getState) => {
+  dispatcher(fetching());
+
+  return Contentfull.getEpisodes({ where: { serie: id } }).then(series => {
+    dispatcher(storeEpisodes(series));
     return dispatcher(fetchEnd());
   });
 };

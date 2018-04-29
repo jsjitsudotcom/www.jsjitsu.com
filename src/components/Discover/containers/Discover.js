@@ -1,5 +1,6 @@
 import { connect } from "react-redux";
 import actions from "./../../../actions";
+import { push } from "react-router-redux";
 
 const mapState = (state, props) => {
   return {
@@ -8,7 +9,8 @@ const mapState = (state, props) => {
 };
 
 const mapDispatch = (dispatch, props) => ({
-  fetchSeries: () => dispatch(actions.series.fetchSeries())
+  fetchSeries: () => dispatch(actions.series.fetchSeries()),
+  onClickSerie: id => dispatch(push(`/series/${id}`))
 });
 
 export default connect(mapState, mapDispatch);

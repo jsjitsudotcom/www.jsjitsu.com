@@ -1,0 +1,9 @@
+[
+  {
+    "id": "1234567890",
+    "name": "Initiation à Node",
+    "description": "Vous allez en apprendre beaucoup sur Node",
+    "categories": [{ "id": "23456789" }],
+    "illustration": "http://illustration.com/hello.png"
+  }
+]

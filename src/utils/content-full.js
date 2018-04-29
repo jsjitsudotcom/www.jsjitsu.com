@@ -39,10 +39,12 @@ export const getEpisodes = findAll({
   content_type: "episode",
   parser: parseEpisode
 });
+
 export const getCategories = findAll({
   content_type: "category",
   parser: parseCategory
 });
+
 export const getSeries = findAll({
   content_type: "serie",
   parser: parseSeries

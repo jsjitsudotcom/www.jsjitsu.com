@@ -17,19 +17,22 @@ class Video extends PureComponent {
   }
 
   state = {
-    duration: "00:00",
-    current: "00:00",
     percentage: 0,
     showControls: true,
     isPlaying: false
   };
 
   componentDidMount() {
-    this.play();
+    // this.play();
     this.hideControls();
   }
 
+  componentDidUpdate(props) {
+    // if(props.source !== this.props.source) return this.play();
+  }
+
   play(e) {
+    console.log(this.props.source);
     if (e) e.stopPropagation();
 
     this.video.play();
@@ -88,7 +91,7 @@ class Video extends PureComponent {
           className={classNames(Style.menu, { hide: !this.state.showControls })}
           onClick={this.onVideoClick}
         >
-          <div className={Style.back}>
+          <div className={Style.back} onClick={this.props.onBack}>
             <img src={ArrayLeft} alt="back" />
           </div>
           <div className={Style.share}>
@@ -129,5 +132,9 @@ class Video extends PureComponent {
     );
   }
 }
+
+Video.defaultProps = {
+  onBack: /* istanbul ignore next */ () => false
+};
 
 export default Video;

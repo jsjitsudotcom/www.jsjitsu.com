@@ -1,7 +1,6 @@
 import React, { PureComponent } from "react";
 import Style from "./Tabs.scss";
 import PropTypes from "prop-types";
-import Logo from "./../../../../assets/logo/header.svg";
 import Amplitude from "./../../../../utils/amplitude";
 
 export default class Menu extends PureComponent {

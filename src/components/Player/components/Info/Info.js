@@ -6,7 +6,7 @@ import ArrowDropDown from "./../../../../assets/material-icons/arrow-drop-down.s
 import Ripple from "./../../../Ripple/Ripple";
 
 const getPublishedAt = date => moment(date).fromNow();
-const sliceText = text => text.slice(0, 100) + "...";
+const sliceText = (text = "") => text.slice(0, 100) + "...";
 
 const enhance = compose(
   withState("isOpen", "updateOpen", false),

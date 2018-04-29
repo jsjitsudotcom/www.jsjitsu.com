@@ -1,5 +1,4 @@
 import React, { PureComponent } from "react";
-import Style from "./Menu.scss";
 import PropTypes from "prop-types";
 import Header from "./components/Header/Header";
 import Tabs from "./components/Tabs/Tabs";

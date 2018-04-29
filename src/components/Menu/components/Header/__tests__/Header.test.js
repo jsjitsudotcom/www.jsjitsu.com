@@ -46,7 +46,7 @@ describe("<Header />", () => {
       );
     });
   });
-  describe("Suite test for private methods", () => {
+  describe.skip("Suite test for private methods", () => {
     test("should handle onClose and onChangeTab", () => {
       const onClickMenu = sinon.spy();
       const onClickSubmitFeed = sinon.spy();

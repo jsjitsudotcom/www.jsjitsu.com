@@ -2,25 +2,31 @@ import React, { PureComponent } from "react";
 import Style from "./Discover.scss";
 import PropTypes from "prop-types";
 
+import Connect from "./containers/Discover";
+
 import Menu from "./../Menu/Menu";
 import Carousel from "./../Carousel/Carousel";
 import Serie from "./../Serie/Serie";
-import PlayBack from "./../PlayBack/PlayBack";
+// import PlayBack from "./../PlayBack/PlayBack";
 import Onboarding from "./../Onboarding/Onboarding";
 
 import School from "./../../assets/material-icons/school.svg";
 
 class Discover extends PureComponent {
+  componentDidMount() {
+    this.props.fetchSeries();
+  }
+
   render() {
     return (
       <div>
         <Menu title="JSJITSU" />
         <div className={Style.container}>
-          {/* <Onboarding
+          <Onboarding
             title="Apprennez le Javascript"
             icon={School}
             description="Avec Jsjitsu, vous pouvez n’importe où et à n’importe quel moment, apprendre de nouvelles choses sur le Javascript. L’application et les vidéos sont disponible même sans connexion internet."
-          /> */}
+          />
 
           <Carousel
             title="Les nouvelles sorties"
@@ -28,8 +34,13 @@ class Discover extends PureComponent {
             padding={15}
             marginTop={10}
           >
-            {this.props.series.map(({ illustration, title, id }) => (
-              <Serie key={id} illustration={illustration} title={title} />
+            {this.props.series.map(({ illustration, name, id }) => (
+              <Serie
+                key={id}
+                illustration={illustration}
+                name={name}
+                onClick={() => this.props.onClickSerie(id)}
+              />
             ))}
           </Carousel>
 
@@ -79,11 +90,15 @@ class Discover extends PureComponent {
 }
 
 Discover.propTypes = {
-  releases: PropTypes.array
+  releases: PropTypes.array,
+  series: PropTypes.array
 };
 
 Discover.defaultProps = {
-  releases: []
+  releases: [],
+  series: [],
+  fetchSeries: /* istanbul ignore next */ () => false
 };
 
-export default Discover;
+export const Component = Discover;
+export default Connect(Discover);

@@ -47,9 +47,11 @@ class Ripples extends PureComponent {
       this.ripple.style.opacity = 0;
       this.ripple.style.transform = `scale(${size / 9})`;
       this.ripple.style.transition = `all ${during}ms`;
+
+      if (typeof onClick === "function") onClick(ev);
     });
 
-    if (typeof onClick === "function") onClick(ev);
+    // if (typeof onClick === "function") onClick(ev);
   };
 
   render() {
