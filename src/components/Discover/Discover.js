@@ -33,6 +33,7 @@ class Discover extends PureComponent {
             description="Toutes catégories confondues"
             padding={15}
             marginTop={10}
+            onMount={this.props.fetchSeries}
           >
             {this.props.series.map(({ illustration, name, id }) => (
               <Serie

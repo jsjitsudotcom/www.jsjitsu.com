@@ -34,15 +34,38 @@ describe("<Discover.Container />", () => {
     data = wrapper.find("Serie").exists();
     expected = true;
     message = "Les séries doivent s'afficher";
+    expect(data).to.eq(expected, message);
 
     data = wrapper.find("Serie").prop("illustration");
     expected = seriesData[0].illustration;
     message = "L'illustration doit bien être envoyé à la Serie";
+    expect(data).to.eq(expected, message);
 
     data = wrapper.find("Serie").prop("name");
     expected = seriesData[0].name;
     message = "Le name doit bien être envoyé à la Serie";
+    expect(data).to.eq(expected, message);
+  });
 
+  it("Doit appeller la méthode fetchSeries lorsque le premier Carousel s'affiche", async () => {
+    let data, message, expected;
+    const spy = sinon.spy();
+
+    const wrapper = shallow(<Discover fetchSeries={spy} />);
+
+    data = wrapper.find("Carousel").exists();
+    expected = true;
+    message = "Le carousel doit s'afficher";
+    expect(data).to.eq(expected, message);
+
+    wrapper
+      .find("Carousel")
+      .first()
+      .prop("onMount")();
+
+    data = spy.called;
+    expected = true;
+    message = "La méthode doit avoir été appelée";
     expect(data).to.eq(expected, message);
   });
 });
