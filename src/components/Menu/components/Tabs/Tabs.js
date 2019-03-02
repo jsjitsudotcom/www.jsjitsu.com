@@ -3,7 +3,7 @@ import Style from "./Tabs.scss";
 import PropTypes from "prop-types";
 import Amplitude from "./../../../../utils/amplitude";
 
-export default class Menu extends PureComponent {
+export default class Tabs extends PureComponent {
   onClick(e) {
     Amplitude.logEvent("MENU_LINK_CLICK", {
       url: e.target.href
@@ -66,13 +66,12 @@ export default class Menu extends PureComponent {
   }
 }
 
-Menu.propTypes = {
+Tabs.propTypes = {
   open: PropTypes.bool,
   onClose: PropTypes.func
 };
 
-Menu.defaultProps = {
+Tabs.defaultProps = {
   open: false,
-  onClose: /* istanbul ignore next*/ () =>
-    console.warn("defaultProps: Menu.onClose()")
+  onClose: /* istanbul ignore next*/ () => false
 };

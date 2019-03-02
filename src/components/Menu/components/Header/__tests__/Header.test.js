@@ -1,6 +1,6 @@
 import React from "react";
 import { shallow, mount } from "enzyme";
-import { expect } from "chai";
+import { expect as chai } from "chai";
 import sinon from "sinon";
 import Header from "./../Header";
 
@@ -9,56 +9,31 @@ describe("<Header />", () => {
     shallow(<Header />);
   });
 
-  describe("Suite de tests sur les propTypes", () => {
-    beforeEach(() => {
-      console.error = sinon.spy();
-    });
+  it("Vérification que toutes les props soient bien dans les propTypes", () => {
+    const props = ["onClickMenu", "onClickSubmitFeed", "fixed"];
+    const propTypes = Object.keys(Header.propTypes);
 
-    afterAll(() => {
-      console.error.restore();
-    });
-
-    test("Vérification que toutes les props soient bien dans les propTypes", () => {
-      const props = ["onClickMenu", "onClickSubmitFeed", "fixed"];
-      const propTypes = Object.keys(Header.propTypes);
-
-      expect(props).to.deep.eq(propTypes);
-    });
+    chai(props).to.deep.eq(propTypes);
   });
 
-  describe("Suite de tests sur le pure rendering", () => {
-    it("Le composant doit être un pure composant", () => {
-      const onClickMenu = () => false;
-      let wrapper = shallow(<Header onClickMenu={onClickMenu} />);
-
-      let spy = sinon.spy(wrapper.instance(), "render");
-
-      wrapper.update();
-      expect(spy.callCount).to.eq(
-        0,
-        "L'update ne doit pas faire un nouveau render"
-      );
-
-      wrapper.setProps({ onClickMenu });
-      expect(spy.callCount).to.eq(
-        0,
-        "Mettre à jour une props sans changer la valeur ne doit pas faire de nouveau rendu"
-      );
-    });
+  it("Doit afficher le titre et les tabs doivent être fermée", () => {
+    const wrapper = shallow(<Header title="Hi" isMenuOpen={false} />);
+    expect(wrapper).toMatchSnapshot();
   });
-  describe.skip("Suite test for private methods", () => {
-    test("should handle onClose and onChangeTab", () => {
-      const onClickMenu = sinon.spy();
-      const onClickSubmitFeed = sinon.spy();
 
-      const wrapper = mount(<Header onMenu={onClickMenu} />);
+  it("Doit afficher le titre et les tabs doivent être ouverte", () => {
+    const wrapper = shallow(<Header title="Hello" isMenuOpen={true} />);
+    expect(wrapper).toMatchSnapshot();
+  });
 
-      wrapper
-        .find(".menu")
-        .first()
-        .simulate("click");
+  it("Doit appeller la méthode onClick", () => {
+    const spy = sinon.spy();
+    const wrapper = shallow(<Header onMenu={spy} />);
 
-      expect(onClickMenu.calledOnce).to.equal(true);
-    });
+    wrapper.find("Ripple").prop("onClick")();
+
+    const data = spy.called;
+    const expected = true;
+    chai(data).to.eq(expected);
   });
 });

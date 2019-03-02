@@ -6,7 +6,7 @@ const wrapStyleDefault = {
   overflow: "hidden"
 };
 
-class Ripples extends PureComponent {
+class Ripple extends PureComponent {
   constructor(props) {
     super(props);
 
@@ -73,18 +73,18 @@ class Ripples extends PureComponent {
   }
 }
 
-Ripples.propTypes = {
+Ripple.propTypes = {
   during: PropTypes.number,
   color: PropTypes.string,
 
   onClick: PropTypes.func
 };
 
-Ripples.defaultProps = {
+Ripple.defaultProps = {
   color: "rgba(255,255,255, 0.5)",
   during: 1000,
   onClick: /* istanbul ignore next */ () =>
-    console.warn("defaultProps: Ripples.onClick()")
+    console.warn("defaultProps: Ripple.onClick()")
 };
 
-export default Ripples;
+export default Ripple;

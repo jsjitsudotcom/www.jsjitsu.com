@@ -1,0 +1,27 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Serie /> Doit vérifier la bon affichage des props 1`] = `
+<div
+  className="container"
+>
+  <Ripple
+    color="rgba(255,255,255, 0.5)"
+    during={1000}
+    onClick={[Function]}
+  >
+    <div
+      className="illustration"
+      style={
+        Object {
+          "backgroundImage": "url(illustration)",
+        }
+      }
+    />
+    <div
+      className="title"
+    >
+      name
+    </div>
+  </Ripple>
+</div>
+`;

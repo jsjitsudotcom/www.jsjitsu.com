@@ -4,7 +4,12 @@ import Header from "./components/Header/Header";
 import Tabs from "./components/Tabs/Tabs";
 
 export default class Menu extends PureComponent {
-  state = { open: false };
+  constructor(props) {
+    super(props);
+
+    this.state = { open: false };
+    this.toggle = this.toggle.bind(this);
+  }
 
   toggle() {
     this.setState(({ open }) => ({ open: !open }));
@@ -15,10 +20,10 @@ export default class Menu extends PureComponent {
       <div>
         <Header
           title={this.props.title}
-          onMenu={() => this.toggle()}
+          onMenu={this.toggle}
           isMenuOpen={this.state.open}
         />
-        <Tabs open={this.state.open} onClose={() => this.toggle()} />
+        <Tabs open={this.state.open} onClose={this.toggle} />
       </div>
     );
   }

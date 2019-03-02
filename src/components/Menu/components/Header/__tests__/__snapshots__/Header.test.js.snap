@@ -1,0 +1,47 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Header /> Doit afficher le titre et les tabs doivent être fermée 1`] = `
+<header
+  className="container"
+>
+  <Ripple
+    className="menu"
+    color="rgba(255,255,255, 0.5)"
+    during={1000}
+    onClick={[Function]}
+  >
+    <img
+      alt="menu"
+      src="menu-white.svg"
+    />
+  </Ripple>
+  <div
+    className="title"
+  >
+    Hi
+  </div>
+</header>
+`;
+
+exports[`<Header /> Doit afficher le titre et les tabs doivent être ouverte 1`] = `
+<header
+  className="container"
+>
+  <Ripple
+    className="menu"
+    color="rgba(255,255,255, 0.5)"
+    during={1000}
+    onClick={[Function]}
+  >
+    <img
+      alt="menu"
+      src="close-white.svg"
+    />
+  </Ripple>
+  <div
+    className="title"
+  >
+    Hello
+  </div>
+</header>
+`;
